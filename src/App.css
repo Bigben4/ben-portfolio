@@ -10,6 +10,3 @@
 /* Featured projects carousel */
 #projects{padding:28px 0 24px}.featured-project-art{height:210px;border-radius:1rem}.project-carousel{mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent)}
 @media(max-width:580px){#projects{padding:24px 0 20px}.featured-project-art{height:185px}}
-
-/* Reliable star field: rendered by the page background, not only a masked overlay. */
-body{background-color:#020914;background-image:radial-gradient(circle at 18px 24px,#4ca7ff 1px,transparent 1.5px),radial-gradient(circle at 112px 68px,#d8edff .7px,transparent 1.2px),radial-gradient(circle at 82% 12%,#073b7d80,transparent 28%),linear-gradient(#020914,#020914);background-size:145px 145px,220px 220px,100% 100%,100% 100%;background-attachment:fixed}body:before{background-image:radial-gradient(#27a4ff .75px,transparent 1px);background-size:34px 34px;opacity:.42;-webkit-mask-image:linear-gradient(#000,transparent 82%);mask-image:linear-gradient(#000,transparent 82%)}
