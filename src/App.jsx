@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import './App.css'
 
 const skills = [
@@ -20,22 +19,6 @@ function SectionTitle({ eyebrow, title, action }) {
 function ProjectArt({ type }) { return <div className={`project-art ${type}`}><div className="window"><i /><i /><i /></div><strong>{type === 'minecraft' ? 'MINECRAFT' : type === 'dashboard' ? 'DASHBOARD' : type === 'password' ? 'PASSWORD MANAGER' : 'BUSINESS'}</strong></div> }
 
 function App() {
-  const [skillsPerPage, setSkillsPerPage] = useState(4)
-  const [skillPage, setSkillPage] = useState(0)
-  const skillPages = Array.from({ length: Math.ceil(skills.length / skillsPerPage) }, (_, page) => skills.slice(page * skillsPerPage, (page + 1) * skillsPerPage))
-  const activeSkillPage = Math.min(skillPage, skillPages.length - 1)
-
-  useEffect(() => {
-    const updateSkillsPerPage = () => {
-      const next = window.innerWidth <= 580 ? 1 : window.innerWidth <= 850 ? 2 : 4
-      setSkillsPerPage(next)
-    }
-
-    updateSkillsPerPage()
-    window.addEventListener('resize', updateSkillsPerPage)
-    return () => window.removeEventListener('resize', updateSkillsPerPage)
-  }, [])
-
   return <main>
     <header><a className="brand" href="#home"><em>&lt;/&gt;</em> BEN</a><nav>{['Home','About','Projects','Experience','Services','Blog','Contact'].map((x, i) => <a className={i === 0 ? 'active' : ''} href={`#${x.toLowerCase()}`} key={x}>{x}</a>)}</nav><div className="header-actions"><a href="#contact" className="icon-link">◉</a><a href="#contact" className="icon-link">in</a><a className="talk" href="#contact">Let's Talk <b>→</b></a></div></header>
 
@@ -43,7 +26,7 @@ function App() {
 
     <section className="about" id="about"><div className="about-art"><img src="/src/assets/ChatGPT Image Jul 12, 2026, 10_05_14 PM.png" alt="Developer workspace" /></div><div className="about-copy"><span className="eyebrow">ABOUT ME</span><h2>Who I Am <b>✦</b></h2><p>I love turning ideas into real products. I enjoy building web apps, automation tools and AI-powered solutions that solve real world problems.</p><ul><li>🇨🇲 &nbsp; From Cameroon</li><li>🎓 &nbsp; Software Engineering Student</li><li>🚀 &nbsp; Freelancer & Problem Solver</li><li>✨ &nbsp; Always learning something new</li></ul><a className="secondary" href="#contact">♧ &nbsp; Download Resume &nbsp; ↓</a></div><div className="stats">{[['20+','Projects Completed'],['5+','Technologies Mastered'],['2+','Years of Learning'],['100%','Passion & Dedication']].map(([n,t]) => <article key={n}><strong>{n}</strong><p>{t}</p></article>)}</div></section>
 
-    <section className="skills"><SectionTitle eyebrow="TECH STACK" title="Technologies I Work With" /><div className="skills-carousel" aria-roledescription="carousel" aria-label="Technologies I work with"><button className="carousel-control" type="button" aria-label="Previous technologies" onClick={() => setSkillPage((page) => Math.max(0, page - 1))} disabled={activeSkillPage === 0}>←</button><div className="skills-viewport"><div className="skills-track" style={{ transform: `translateX(-${activeSkillPage * 100}%)` }}>{skillPages.map((page, pageIndex) => <div className="skill-page" key={pageIndex} aria-hidden={pageIndex !== activeSkillPage}>{page.map(([icon, name]) => <article key={name}><b>{icon}</b><span>{name}</span></article>)}</div>)}</div></div><button className="carousel-control" type="button" aria-label="Next technologies" onClick={() => setSkillPage((page) => Math.min(skillPages.length - 1, page + 1))} disabled={activeSkillPage === skillPages.length - 1}>→</button></div><div className="dots" role="tablist" aria-label="Technology carousel pages">{skillPages.map((_, page) => <button key={page} type="button" role="tab" aria-label={`Show technology page ${page + 1}`} aria-selected={activeSkillPage === page} onClick={() => setSkillPage(page)} />)}</div></section>
+    <section className="skills"><SectionTitle eyebrow="TECH STACK" title="Technologies I Work With" /><div className="skills-marquee" aria-label="Technologies I work with"><div className="skills-marquee-track">{[...skills, ...skills].map(([icon, name], index) => <article key={`${name}-${index}`} aria-hidden={index >= skills.length}><b>{icon}</b><span>{name}</span></article>)}</div></div></section>
 
     <section id="projects"><SectionTitle eyebrow="FEATURED PROJECTS" title="Things I’ve Built" action="View All Projects" /><div className="projects">{projects.map(([title,copy,type]) => <article className="project" key={title}><ProjectArt type={type}/><h3>{title}</h3><p>{copy}</p><div className="tags"><span>React</span><span>{type === 'dashboard' ? 'Node.js' : 'Tailwind CSS'}</span></div><footer><a href="#contact">↗ &nbsp; {type === 'business' ? 'View Work' : 'Live Demo'}</a><a href="#contact">◉</a></footer></article>)}</div></section>
 
