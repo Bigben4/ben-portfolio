@@ -6,12 +6,13 @@ import {
   FileText,
   Sparkles,
   Terminal,
-  Cpu,
-  Layers
+  MessageCircle
 } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './UI/SocialIcons'
 
 export default function Hero() {
+  const whatsAppUrl = 'https://wa.me/237671807750'
+
   return (
     <section
       id="home"
@@ -37,30 +38,28 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
               <span className="text-xs font-semibold text-slate-300 tracking-wide">
-                Available for Senior Roles & Scale Projects
+                NDILLE ENUME · FULL-STACK ENGINEER
               </span>
             </motion.div>
 
-            {/* Main Headline / Value Proposition */}
+            {/* Primary Name & Headline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-4"
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight leading-[1.15]">
-                Full-Stack Software Engineer specialized in{' '}
-                <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
-                  React, Next.js, and Node.js
-                </span>
-                . Building high-performance web applications and scalable API architectures.
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight leading-[1.12]">
+                NDILLE <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">ENUME</span>
               </h1>
-              <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl">
-                Engineering resilient frontend systems, high-throughput microservices, and modern user experiences built for maximum reliability and lightning-fast speed.
+              
+              {/* Reduced to exactly two tight sentences focused on React, Next.js, Node.js */}
+              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-medium">
+                I am a Full-Stack Software Engineer specialized in React, Next.js, and Node.js. I build high-performance web applications and scalable API architectures tailored for production environments.
               </p>
             </motion.div>
 
-            {/* Primary Action Buttons (CTAs) */}
+            {/* Action Buttons (CTAs) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -85,6 +84,19 @@ export default function Hero() {
               >
                 <FileText size={16} className="text-sky-400 group-hover:scale-110 transition-transform" />
                 <span>Download CV / Resume</span>
+              </a>
+
+              {/* Quick WhatsApp Chat Icon Button */}
+              <a
+                href={whatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Direct WhatsApp Message"
+                className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-xs text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500 hover:text-slate-950 border border-emerald-500/30 transition-all duration-200"
+                title="Chat on WhatsApp"
+              >
+                <MessageCircle size={16} />
+                <span>WhatsApp</span>
               </a>
             </motion.div>
 
@@ -120,7 +132,7 @@ export default function Hero() {
                 </a>
                 <a
                   href="mailto:ben.dev@example.com"
-                  aria-label="Send Email to Ben"
+                  aria-label="Send Email to Ndille Enume"
                   className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-sky-400 hover:border-sky-500/50 hover:bg-slate-800 hover:scale-110 transition-all duration-200 shadow-sm"
                 >
                   <Mail size={18} />
@@ -129,7 +141,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Dynamic Terminal / Interactive Showcase Card */}
+          {/* Right Column: Terminal Card */}
           <div className="lg:col-span-5 relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -160,7 +172,7 @@ export default function Hero() {
                 <div className="pl-4 space-y-1">
                   <div>
                     <span className="text-slate-400">name:</span>{' '}
-                    <span className="text-emerald-400">'Benjamin'</span>,
+                    <span className="text-emerald-400">'Ndille Enume'</span>,
                   </div>
                   <div>
                     <span className="text-slate-400">role:</span>{' '}
@@ -175,11 +187,7 @@ export default function Hero() {
                   <div>],</div>
                   <div>
                     <span className="text-slate-400">focus:</span>{' '}
-                    <span className="text-emerald-400">'High-Performance Apps & Scalable APIs'</span>,
-                  </div>
-                  <div>
-                    <span className="text-slate-400">status:</span>{' '}
-                    <span className="text-amber-300">'Building resilient web software'</span>
+                    <span className="text-emerald-400">'High-Performance Web Apps & APIs'</span>
                   </div>
                 </div>
                 <div>&#125;;</div>
@@ -187,13 +195,13 @@ export default function Hero() {
                 <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
                   <div className="flex items-center gap-1.5 text-sky-400">
                     <Terminal size={14} />
-                    <span>ben@dev:~$ pnpm test:architecture</span>
+                    <span>ndille@dev:~$ pnpm test:architecture</span>
                   </div>
                   <span className="text-emerald-400 font-bold">✓ 100% Passed</span>
                 </div>
               </div>
 
-              {/* Key Metrics Floating Cards */}
+              {/* Key Metrics */}
               <div className="grid grid-cols-3 gap-3 mt-5 pt-4 border-t border-slate-800/80">
                 <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
                   <div className="text-lg font-bold text-sky-400 font-['Space_Grotesk']">12+</div>
@@ -201,7 +209,7 @@ export default function Hero() {
                 </div>
                 <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
                   <div className="text-lg font-bold text-emerald-400 font-['Space_Grotesk']">99.9%</div>
-                  <div className="text-[11px] text-slate-400">API Reliability</div>
+                  <div className="text-[11px] text-slate-400">API Uptime</div>
                 </div>
                 <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
                   <div className="text-lg font-bold text-cyan-400 font-['Space_Grotesk']">&lt; 100ms</div>

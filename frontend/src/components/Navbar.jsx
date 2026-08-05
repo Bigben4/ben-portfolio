@@ -69,7 +69,7 @@ export default function Navbar() {
             <Code2 size={18} />
           </div>
           <span>
-            NDILLE <span className="text-sky-400">ENUMES</span>
+            NDILLE <span className="text-sky-400">ENUME</span>
           </span>
         </a>
 

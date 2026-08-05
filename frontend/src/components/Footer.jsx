@@ -17,14 +17,14 @@ export default function Footer() {
               <Code2 size={16} />
             </div>
             <span>
-              BEN<span className="text-sky-400">.DEV</span>
+              NDILLE <span className="text-sky-400">ENUMES</span>
             </span>
           </a>
 
           <div className="hidden sm:block h-4 w-px bg-slate-800" />
 
           <p className="text-xs text-slate-400 flex items-center gap-1">
-            <span>© {currentYear} Benjamin. All rights reserved. Built with</span>
+            <span>© {currentYear} Ndille Enume. All rights reserved. Built with</span>
             <Heart size={12} className="text-rose-500 fill-rose-500" />
             <span>& React.</span>
           </p>
