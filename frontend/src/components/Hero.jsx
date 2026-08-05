@@ -12,6 +12,7 @@ import { GithubIcon, LinkedinIcon } from './UI/SocialIcons'
 
 export default function Hero() {
   const whatsAppUrl = 'https://wa.me/237671807750'
+  const emailAddress = 'Ebrahimndille@gmail.com'
 
   return (
     <section
@@ -50,7 +51,7 @@ export default function Hero() {
               className="space-y-4"
             >
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight leading-[1.12]">
-                NDILLE <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">ENUME</span>
+                NDILLE <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">ENUMES</span>
               </h1>
               
               {/* Reduced to exactly two tight sentences focused on React, Next.js, Node.js */}
@@ -131,7 +132,7 @@ export default function Hero() {
                   <LinkedinIcon size={18} />
                 </a>
                 <a
-                  href="mailto:ben.dev@example.com"
+                  href={`mailto:${emailAddress}`}
                   aria-label="Send Email to Ndille Enume"
                   className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-sky-400 hover:border-sky-500/50 hover:bg-slate-800 hover:scale-110 transition-all duration-200 shadow-sm"
                 >

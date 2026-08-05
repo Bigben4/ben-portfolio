@@ -8,6 +8,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home')
 
   const whatsAppUrl = 'https://wa.me/237671807750'
+  const emailAddress = 'Ebrahimndille@gmail.com'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +70,7 @@ export default function Navbar() {
             <Code2 size={18} />
           </div>
           <span>
-            NDILLE <span className="text-sky-400">ENUME</span>
+            NDILLE <span className="text-sky-400">ENUMES</span>
           </span>
         </a>
 
@@ -115,7 +116,7 @@ export default function Navbar() {
               <LinkedinIcon size={18} />
             </a>
             <a
-              href="mailto:ben.dev@example.com"
+              href={`mailto:${emailAddress}`}
               className="p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="Email Contact"
             >
@@ -183,13 +184,13 @@ export default function Navbar() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="min-w-[48px] flex min-h-[48px] items-center justify-center rounded-lg bg-slate-900 text-slate-300 hover:text-sky-400 border border-slate-800"
+                  className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg bg-slate-900 text-slate-300 hover:text-sky-400 border border-slate-800"
                   aria-label="LinkedIn Profile"
                 >
                   <LinkedinIcon size={20} />
                 </a>
                 <a
-                  href="mailto:ben.dev@example.com"
+                  href={`mailto:${emailAddress}`}
                   className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg bg-slate-900 text-slate-300 hover:text-sky-400 border border-slate-800"
                   aria-label="Email Ndille Enume"
                 >
