@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import { journalMilestones } from '../data/journalData'
-import { Calendar, Trophy, Rocket, Users, Code2, Sparkles, ChevronLeft, ChevronRight, Layers } from 'lucide-react'
+import { Calendar, Trophy, Rocket, Users, Code2, Sparkles, ChevronLeft, ChevronRight, Layers, Database, Server } from 'lucide-react'
 
 const iconMap = {
   Trophy,
   Rocket,
   Users,
   Code2,
-  Sparkles
+  Sparkles,
+  Database,
+  Server,
+  Layers
 }
 
 function MilestoneImageSlider({ images, singleImage, title, isActive, date, category, IconComponent }) {

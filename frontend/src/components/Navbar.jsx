@@ -75,17 +75,17 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80 backdrop-blur-sm">
+        <nav className="hidden md:flex items-center gap-2 bg-slate-900/70 p-2 rounded-full border border-slate-800/90 backdrop-blur-md shadow-lg shadow-black/40">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
+                className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${
                   isActive
-                    ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20 font-bold'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                    ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/30 font-bold scale-[1.02]'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
                 }`}
               >
                 {link.name}
@@ -95,13 +95,13 @@ export default function Navbar() {
         </nav>
 
         {/* Quick Social Proof Icons & WhatsApp CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <div className="flex items-center gap-1.5 border-r border-slate-800 pr-3">
+        <div className="hidden md:flex items-center gap-4">
+          <div className="flex items-center gap-2 border-r border-slate-800 pr-4">
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="GitHub Profile"
             >
               <GithubIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
@@ -110,14 +110,14 @@ export default function Navbar() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
             </a>
             <a
               href={`mailto:${emailAddress}`}
-              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="Email Contact"
             >
               <Mail className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
@@ -129,10 +129,10 @@ export default function Navbar() {
             href={whatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="min-h-[48px] inline-flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-bold text-sky-400 bg-sky-500/10 hover:bg-sky-500 hover:text-slate-950 rounded-lg border border-sky-500/30 transition-all duration-200"
+            className="min-h-[48px] inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-bold text-sky-400 bg-sky-500/10 hover:bg-sky-500 hover:text-slate-950 rounded-xl border border-sky-500/30 transition-all duration-200 shadow-sm hover:shadow-sky-500/20"
           >
             <span>Let's Talk</span>
-            <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+            <ArrowUpRight className="w-5 h-5 shrink-0" />
           </a>
         </div>
 

@@ -12,8 +12,26 @@ import prometheusImg2 from '../assets/2026-prometheus-hackathon-participants.jpg
 import prometheusImg3 from '../assets/2026-prometheus-hackathon-prizes.jpg'
 import prometheusImg4 from '../assets/2026-prometheus-hackathon-dday.jpg'
 import prometheusImg5 from '../assets/2026-prometheus-hackathon-coding.jpg'
+import erpSchemaImg from '../assets/2026-school-erp-schema.png'
+import erpSqlImg from '../assets/2026-school-erp-sql.png'
 
 export const journalMilestones = [
+  {
+    id: "milestone-school-erp-backend",
+    date: "February 2026",
+    category: "Backend & Database Architecture",
+    title: "Architecting the School ERP Backend",
+    description: "Transitioned the School ERP system into the full-stack backend phase. Designed a multi-entity relational schema in Microsoft SQL Server to manage user roles, student records, courses, grading, and payment processing. Integrated the database layer with a Node.js and Express.js API in VS Code, solving complex relational mapping, foreign key constraints, and backend data flow challenges.",
+    image: erpSchemaImg,
+    imageSrc: "/assets/journal/2026-school-erp-schema.jpg",
+    imageAlt: "School ERP Relational Database Schema in Microsoft SQL Server",
+    images: [
+      erpSchemaImg,
+      erpSqlImg
+    ],
+    icon: "Database",
+    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20"
+  },
   {
     id: "milestone-prometheus-hackathon",
     date: "July 2026",
