@@ -287,7 +287,7 @@ function MilestoneRow({ item, index, isEven }) {
           >
             <MilestoneImageSlider
               images={item.images}
-              singleImage={item.image}
+              singleImage={item.imageSrc || item.image}
               title={item.title}
               isActive={isActive}
               date={item.date}
