@@ -5,8 +5,25 @@ import whatsappImg from '../assets/WhatsApp Image 2026-08-05 at 1.56.20 AM.jpeg'
 import reeplsImg1 from '../assets/2026-reepls-taskflow.png'
 import reeplsImg2 from '../assets/Screenshot From 2026-08-19 15-59-12.png'
 import reeplsImg3 from '../assets/Screenshot From 2026-08-19 15-59-18.png'
+import reeplsJoinImg1 from '../assets/IMG_5172.jpg'
+import reeplsJoinImg2 from '../assets/IMG_5173.jpg'
 
 export const journalMilestones = [
+  {
+    id: "milestone-joining-reepls",
+    date: "August 2026",
+    category: "Career Milestone",
+    title: "Joining Reepls Technologies",
+    description: "Officially joined Reepls Technologies as a Software Engineering Intern for a 3-month tenure. Stepping into a fast-paced engineering environment focused on shipping real-world software, expanding into AI-driven architecture, and writing clean, scalable production code alongside a talented team.",
+    image: reeplsJoinImg1,
+    imageAlt: "Joining Reepls Technologies Software Engineering Internship Office Banner",
+    images: [
+      reeplsJoinImg1,
+      reeplsJoinImg2
+    ],
+    icon: "Users",
+    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20"
+  },
   {
     id: "milestone-reepls-taskflow",
     date: "August 2026",
@@ -40,71 +57,5 @@ export const journalMilestones = [
     icon: "Sparkles",
     badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20"
   },
-  {
-    id: "milestone-1",
-    date: "July 2025",
-    category: "Hackathon Victory",
-    title: "1st Place Winner — Prometheus Global AI Hackathon",
-    description: "Led a 4-person engineering team to construct an AI-powered log diagnostic engine utilizing Next.js 15 App Router and Ollama LLM embeddings in 48 hours.",
-    image: img0215,
-    imageAlt: "Prometheus AI Hackathon Team Collaboration",
-    images: [
-      img0215,
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80"
-    ],
-    icon: "Trophy",
-    badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20"
-  },
-  {
-    id: "milestone-2",
-    date: "May 2025",
-    category: "Major Project Release",
-    title: "Shipped QuestOps SaaS Platform v1.0",
-    description: "Architected and deployed full-stack developer task automation platform featuring WebSockets telemetry and optimized PostgreSQL Prisma query pipelines.",
-    image: img0387,
-    imageAlt: "QuestOps SaaS Platform Dashboard",
-    images: [
-      img0387,
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-    ],
-    icon: "Code2",
-    badgeColor: "bg-sky-500/10 text-sky-400 border-sky-500/20"
-  },
-  {
-    id: "milestone-3",
-    date: "February 2025",
-    category: "GDG Workshop Host",
-    title: "Featured Speaker at GDG 'Build with AI' Summit",
-    description: "Presented technical deep-dives on Next.js 15 Server Actions and local LLM orchestration with Ollama for 150+ student and professional engineers.",
-    image: img4952,
-    imageAlt: "GDG Build with AI Tech Summit Speaker Presentation",
-    images: [
-      img4952,
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1200&q=80"
-    ],
-    icon: "Users",
-    badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20"
-  },
-  {
-    id: "milestone-4",
-    date: "November 2024",
-    category: "Engineering Milestone",
-    title: "Engineered HeritageVault Tree Layout Engine",
-    description: "Implemented custom incremental HTML5 Canvas graph rendering pipeline handling 1,000+ interactive family tree nodes at sustained 60fps.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "HeritageVault Data Visualization & Graph Engine",
-    images: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80"
-    ],
-    icon: "Code2",
-    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20"
-  }
+ 
 ]
