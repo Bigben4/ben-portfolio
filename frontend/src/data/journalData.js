@@ -41,6 +41,6 @@ export const journalMilestones = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     imageAlt: "HeritageVault Data Visualization & Graph Engine",
     icon: "Code2",
-    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20"
   }
 ]
