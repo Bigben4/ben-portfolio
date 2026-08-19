@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 import { GithubIcon } from './UI/SocialIcons'
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, index = 0 }) {
   const [copiedField, setCopiedField] = useState(null)
 
   const handleCopy = (text, fieldName) => {
@@ -25,11 +25,11 @@ export default function ProjectCard({ project }) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 25 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5 }}
-      className="group relative rounded-2xl border border-slate-800 bg-slate-950/80 p-6 shadow-xl hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between"
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: index * 0.15, ease: 'easeOut' }}
+      className="group relative rounded-2xl border border-neutral-800 bg-neutral-900/90 p-6 shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between"
     >
       {/* Background Subtle Gradient Overlay */}
       <div
@@ -59,10 +59,10 @@ export default function ProjectCard({ project }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View ${project.title} source code on GitHub`}
-                className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 hover:bg-slate-800 transition-all"
+                className="min-h-[48px] min-w-[48px] p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-slate-300 hover:text-white hover:border-slate-700 hover:bg-neutral-800 transition-all flex items-center justify-center"
                 title="View Source Code"
               >
-                <GithubIcon size={18} />
+                <GithubIcon className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               </a>
             )}
             {project.demoUrl && (
@@ -71,11 +71,11 @@ export default function ProjectCard({ project }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open live demo for ${project.title}`}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-sky-500/10 hover:bg-sky-500 hover:text-slate-950 border border-sky-500/30 text-sky-400 font-semibold text-xs transition-all"
+                className="min-h-[48px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-blue-500/10 hover:bg-blue-600 hover:text-white border border-blue-500/30 text-blue-400 font-semibold text-xs transition-all"
                 title="Live Demo"
               >
                 <span>Live Demo</span>
-                <ExternalLink size={14} />
+                <ExternalLink className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               </a>
             )}
           </div>
@@ -98,24 +98,24 @@ export default function ProjectCard({ project }) {
               <button
                 type="button"
                 onClick={() => handleCopy(project.demoAccount.email, 'email')}
-                className="flex items-center justify-between gap-2 p-2 rounded-lg bg-slate-950 border border-slate-800 hover:border-sky-500/40 text-slate-300 hover:text-white transition-all text-left group/btn"
+                className="min-h-[48px] flex items-center justify-between gap-2 p-2 rounded-lg bg-neutral-950 border border-neutral-800 hover:border-blue-500/40 text-slate-300 hover:text-white transition-all text-left group/btn"
                 title="Click to copy email"
               >
                 <div className="truncate">
                   <span className="text-slate-500 text-[10px] block font-sans">Email:</span>
-                  <span className="text-sky-300">{project.demoAccount.email}</span>
+                  <span className="text-blue-400">{project.demoAccount.email}</span>
                 </div>
                 {copiedField === 'email' ? (
-                  <Check size={14} className="text-emerald-400 shrink-0" />
+                  <Check className="w-5 h-5 md:w-6 md:h-6 text-emerald-400 shrink-0" />
                 ) : (
-                  <Copy size={14} className="text-slate-500 group-hover/btn:text-sky-400 shrink-0" />
+                  <Copy className="w-5 h-5 md:w-6 md:h-6 text-slate-500 group-hover/btn:text-blue-400 shrink-0" />
                 )}
               </button>
 
               <button
                 type="button"
                 onClick={() => handleCopy(project.demoAccount.password, 'password')}
-                className="flex items-center justify-between gap-2 p-2 rounded-lg bg-slate-950 border border-slate-800 hover:border-sky-500/40 text-slate-300 hover:text-white transition-all text-left group/btn"
+                className="min-h-[48px] flex items-center justify-between gap-2 p-2 rounded-lg bg-neutral-950 border border-neutral-800 hover:border-blue-500/40 text-slate-300 hover:text-white transition-all text-left group/btn"
                 title="Click to copy password"
               >
                 <div className="truncate">
@@ -123,9 +123,9 @@ export default function ProjectCard({ project }) {
                   <span className="text-amber-300">{project.demoAccount.password}</span>
                 </div>
                 {copiedField === 'password' ? (
-                  <Check size={14} className="text-emerald-400 shrink-0" />
+                  <Check className="w-5 h-5 md:w-6 md:h-6 text-emerald-400 shrink-0" />
                 ) : (
-                  <Copy size={14} className="text-slate-500 group-hover/btn:text-amber-400 shrink-0" />
+                  <Copy className="w-5 h-5 md:w-6 md:h-6 text-slate-500 group-hover/btn:text-amber-400 shrink-0" />
                 )}
               </button>
             </div>
@@ -143,18 +143,18 @@ export default function ProjectCard({ project }) {
           </div>
 
           {/* Technical Architecture */}
-          <div className="bg-slate-900/40 p-3 rounded-lg border border-slate-800/80">
+          <div className="bg-neutral-900/50 p-3 rounded-lg border border-neutral-800">
             <h4 className="font-semibold text-slate-200 text-xs flex items-center gap-1.5 mb-1 text-purple-400 uppercase tracking-wider">
-              <Layers size={13} />
+              <Layers className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               <span>Technical Architecture</span>
             </h4>
             <p className="text-slate-300">{project.technicalArchitecture}</p>
           </div>
 
           {/* Key Engineering Challenge */}
-          <div className="bg-slate-900/40 p-3 rounded-lg border border-slate-800/80">
+          <div className="bg-neutral-900/50 p-3 rounded-lg border border-neutral-800">
             <h4 className="font-semibold text-slate-200 text-xs flex items-center gap-1.5 mb-1 text-emerald-400 uppercase tracking-wider">
-              <Cpu size={13} />
+              <Cpu className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               <span>Key Engineering Challenge</span>
             </h4>
             <p className="text-slate-300">{project.engineeringChallenge}</p>

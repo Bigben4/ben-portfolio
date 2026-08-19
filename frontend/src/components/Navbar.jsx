@@ -55,22 +55,22 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#030712]/90 backdrop-blur-md border-b border-slate-800/80 py-3 shadow-xl shadow-black/40'
+          ? 'bg-black/90 backdrop-blur-md border-b border-neutral-800 py-3 shadow-xl shadow-black/80'
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
         {/* Brand Logo */}
         <a
           href="#home"
           className="group flex items-center gap-2.5 text-lg font-bold font-['Space_Grotesk'] text-white tracking-tight hover:text-sky-400 transition-colors"
           aria-label="Ndille Enume Portfolio Home"
         >
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
-            <Code2 size={18} />
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all shrink-0">
+            <Code2 className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
           </div>
           <span>
-            NDILLE <span className="text-sky-400">ENUMES</span>
+            NDILLE <span className="text-sky-400">ENUME</span>
           </span>
         </a>
 
@@ -101,26 +101,26 @@ export default function Navbar() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="GitHub Profile"
             >
-              <GithubIcon size={18} />
+              <GithubIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon size={18} />
+              <LinkedinIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
             </a>
             <a
               href={`mailto:${emailAddress}`}
-              className="p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="Email Contact"
             >
-              <Mail size={18} />
+              <Mail className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
             </a>
           </div>
 
@@ -129,10 +129,10 @@ export default function Navbar() {
             href={whatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-sky-400 bg-sky-500/10 hover:bg-sky-500 hover:text-slate-950 rounded-lg border border-sky-500/30 transition-all duration-200"
+            className="min-h-[48px] inline-flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-bold text-sky-400 bg-sky-500/10 hover:bg-sky-500 hover:text-slate-950 rounded-lg border border-sky-500/30 transition-all duration-200"
           >
             <span>Let's Talk</span>
-            <ArrowUpRight size={14} />
+            <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
           </a>
         </div>
 
@@ -145,14 +145,14 @@ export default function Navbar() {
             aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X className="w-6 h-6 shrink-0" /> : <Menu className="w-6 h-6 shrink-0" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 shadow-2xl p-6 transition-all animate-fadeIn">
+        <div className="md:hidden fixed inset-x-0 top-[65px] bg-black/95 backdrop-blur-xl border-b border-neutral-800 shadow-2xl p-6 transition-all animate-fadeIn">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <a
@@ -178,7 +178,7 @@ export default function Navbar() {
                   className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg bg-slate-900 text-slate-300 hover:text-sky-400 border border-slate-800"
                   aria-label="GitHub Profile"
                 >
-                  <GithubIcon size={20} />
+                  <GithubIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
                 </a>
                 <a
                   href="https://linkedin.com"
@@ -187,14 +187,14 @@ export default function Navbar() {
                   className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg bg-slate-900 text-slate-300 hover:text-sky-400 border border-slate-800"
                   aria-label="LinkedIn Profile"
                 >
-                  <LinkedinIcon size={20} />
+                  <LinkedinIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
                 </a>
                 <a
                   href={`mailto:${emailAddress}`}
                   className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg bg-slate-900 text-slate-300 hover:text-sky-400 border border-slate-800"
                   aria-label="Email Ndille Enume"
                 >
-                  <Mail size={20} />
+                  <Mail className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
                 </a>
               </div>
 

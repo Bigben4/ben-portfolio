@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   Mail,
   Copy,
@@ -100,12 +101,18 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-24 border-b border-slate-800/60 relative">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-sky-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-semibold uppercase tracking-wider border border-sky-500/20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+        >
+          <span className="inline-block px-3.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
             Let's Connect
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold font-['Space_Grotesk'] text-white tracking-tight">
@@ -114,17 +121,23 @@ export default function ContactSection() {
           <p className="text-slate-400 text-sm sm:text-base">
             Have a project in mind, an engineering role, or a technical inquiry? Send a direct message below.
           </p>
-        </div>
+        </motion.div>
 
         {/* Prominent Plain Text Fallback Email Box Directly Above Form */}
-        <div className="max-w-3xl mx-auto mb-10">
-          <div className="rounded-2xl border border-sky-500/30 bg-slate-950/90 p-5 sm:p-6 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
+          className="max-w-3xl mx-auto mb-10"
+        >
+          <div className="rounded-2xl border border-blue-500/30 bg-neutral-900/90 p-5 sm:p-6 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3.5 text-left w-full sm:w-auto">
-              <div className="w-11 h-11 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center shrink-0">
-                <Mail size={22} />
+              <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0">
+                <Mail className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               </div>
               <div>
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-blue-400 block">
                   Direct Email Contact
                 </span>
                 <span className="text-base sm:text-lg font-bold font-mono text-white tracking-tight">
@@ -133,21 +146,21 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto justify-end">
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-sky-500/10 hover:bg-sky-500 hover:text-slate-950 text-sky-400 font-sans text-xs font-bold transition-all border border-sky-500/30"
+                className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-500/10 hover:bg-blue-600 hover:text-white text-blue-400 font-sans text-xs font-bold transition-all border border-blue-500/30"
                 aria-label="Copy email address to clipboard"
               >
                 {copiedEmail ? (
                   <>
-                    <Check size={16} className="text-emerald-400" />
+                    <Check className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-emerald-400" />
                     <span className="text-emerald-400">Copied Email!</span>
                   </>
                 ) : (
                   <>
-                    <Copy size={16} />
+                    <Copy className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
                     <span>Copy to Clipboard</span>
                   </>
                 )}
@@ -155,23 +168,29 @@ export default function ContactSection() {
 
               <a
                 href={`mailto:${emailAddress}`}
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-semibold text-slate-200 transition-colors"
+                className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 border border-neutral-800 text-xs font-semibold text-slate-200 transition-colors"
                 title="Send via mail app"
               >
                 <span>Mail App</span>
-                <ArrowUpRight size={14} />
+                <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Form Container */}
-        <div className="max-w-3xl mx-auto">
-          <div className="rounded-2xl border border-slate-800 bg-slate-950/80 p-6 sm:p-8 shadow-xl space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.25, ease: 'easeOut' }}
+          className="max-w-3xl mx-auto"
+        >
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/90 p-6 sm:p-8 shadow-xl space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-neutral-800">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center">
-                  <MessageSquare size={20} />
+                <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center shrink-0">
+                  <MessageSquare className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold font-['Space_Grotesk'] text-white">
@@ -187,9 +206,9 @@ export default function ContactSection() {
                 href={whatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold hover:bg-emerald-500 hover:text-slate-950 transition-all"
+                className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold hover:bg-emerald-500 hover:text-slate-950 transition-all"
               >
-                <MessageCircle size={14} />
+                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
                 <span>WhatsApp</span>
               </a>
             </div>
@@ -197,7 +216,7 @@ export default function ContactSection() {
             {/* Validation Feedback Banner */}
             {status === 'success' && (
               <div className="flex items-center gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs">
-                <CheckCircle2 size={18} className="shrink-0" />
+                <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
                 <div>
                   <strong className="font-bold block">Message Sent!</strong>
                   <span>Thank you. Your message has been sent directly to Ndille Enume ({emailAddress}).</span>
@@ -207,7 +226,7 @@ export default function ContactSection() {
 
             {status === 'error' && (
               <div className="flex items-center gap-3 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs">
-                <AlertCircle size={18} className="shrink-0" />
+                <AlertCircle className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
                 <div>
                   <strong className="font-bold block">Validation Error</strong>
                   <span>{errorMessage}</span>
@@ -230,7 +249,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     placeholder="e.g. Alex Morgan"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-xs focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder:text-slate-600"
+                    className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 text-slate-100 text-xs focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
                   />
                 </div>
 
@@ -247,7 +266,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     placeholder="alex@company.com"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-xs focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder:text-slate-600"
+                    className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 text-slate-100 text-xs focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
                   />
                 </div>
               </div>
@@ -264,7 +283,7 @@ export default function ContactSection() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Software Engineering Opportunity / Contract"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-xs focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder:text-slate-600"
+                  className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 text-slate-100 text-xs focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
                 />
               </div>
 
@@ -281,7 +300,7 @@ export default function ContactSection() {
                   onChange={handleChange}
                   placeholder="Provide brief details about your project or technical inquiry..."
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-xs focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder:text-slate-600 resize-none"
+                  className="w-full min-h-[120px] px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 text-slate-100 text-xs focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600 resize-none"
                 />
               </div>
 
@@ -289,20 +308,20 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs text-slate-950 bg-gradient-to-r from-sky-400 via-cyan-300 to-sky-400 hover:from-sky-300 hover:to-cyan-200 shadow-lg shadow-sky-500/20 transition-all disabled:opacity-50 cursor-pointer"
+                className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs text-slate-950 bg-gradient-to-r from-sky-400 via-cyan-300 to-sky-400 hover:from-sky-300 hover:to-cyan-200 shadow-lg shadow-sky-500/20 transition-all disabled:opacity-50 cursor-pointer"
               >
                 {status === 'submitting' ? (
                   <span>Sending Message...</span>
                 ) : (
                   <>
-                    <Send size={15} />
+                    <Send className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
                     <span>Send Message to Ebrahimndille@gmail.com</span>
                   </>
                 )}
               </button>
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

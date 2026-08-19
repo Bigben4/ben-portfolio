@@ -1,10 +1,8 @@
 import React from 'react'
 
-export function GithubIcon({ size = 18, className = '' }) {
+export function GithubIcon({ className = 'w-6 h-6 md:w-7 md:h-7 shrink-0' }) {
   return (
     <svg
-      width={size}
-      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -20,11 +18,9 @@ export function GithubIcon({ size = 18, className = '' }) {
   )
 }
 
-export function LinkedinIcon({ size = 18, className = '' }) {
+export function LinkedinIcon({ className = 'w-6 h-6 md:w-7 md:h-7 shrink-0' }) {
   return (
     <svg
-      width={size}
-      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

@@ -23,16 +23,17 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#0284c718,transparent_55%)] pointer-events-none" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Text Content */}
           <div className="lg:col-span-7 space-y-6 text-left">
             {/* Status Pill */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 backdrop-blur-md"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 backdrop-blur-md"
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -45,35 +46,37 @@ export default function Hero() {
 
             {/* Primary Name & Headline */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
               className="space-y-4"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight leading-[1.12]">
-                NDILLE <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">ENUMES</span>
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight leading-[1.12]">
+                NDILLE <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">ENUME</span>
               </h1>
               
-              {/* Reduced to exactly two tight sentences focused on React, Next.js, Node.js */}
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-medium">
+              {/* Fluid subtitle without mobile line overflow */}
+              <p className="text-slate-300 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl font-medium">
                 I am a Full-Stack Software Engineer specialized in React, Next.js, and Node.js. I build high-performance web applications and scalable API architectures tailored for production environments.
               </p>
             </motion.div>
 
             {/* Action Buttons (CTAs) */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap items-center gap-4 pt-2"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto"
             >
               {/* CTA 1: Primary - View Selected Work */}
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-950 bg-gradient-to-r from-sky-400 via-cyan-300 to-sky-400 hover:from-sky-300 hover:to-cyan-200 shadow-lg shadow-sky-500/25 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="group min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-950 bg-gradient-to-r from-sky-400 via-cyan-300 to-sky-400 hover:from-sky-300 hover:to-cyan-200 shadow-lg shadow-sky-500/25 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>View Selected Work</span>
-                <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform" />
+                <ArrowDown className="w-5 h-5 md:w-6 md:h-6 shrink-0 group-hover:translate-y-1 transition-transform" />
               </a>
 
               {/* CTA 2: Secondary - Download CV / Resume */}
@@ -81,9 +84,9 @@ export default function Hero() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="group min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-200 bg-neutral-900/90 hover:bg-neutral-800 border border-neutral-800 hover:border-slate-700 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <FileText size={16} className="text-sky-400 group-hover:scale-110 transition-transform" />
+                <FileText className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-sky-400 group-hover:scale-110 transition-transform" />
                 <span>Download CV / Resume</span>
               </a>
 
@@ -93,50 +96,51 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Direct WhatsApp Message"
-                className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-xs text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500 hover:text-slate-950 border border-emerald-500/30 transition-all duration-200"
+                className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-xs text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500 hover:text-slate-950 border border-emerald-500/30 transition-all duration-200"
                 title="Chat on WhatsApp"
               >
-                <MessageCircle size={16} />
+                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
                 <span>WhatsApp</span>
               </a>
             </motion.div>
 
             {/* Social Proof Icons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="pt-4 flex items-center gap-4"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+              className="pt-4 flex flex-wrap items-center gap-4"
             >
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Connect With Me
               </span>
-              <div className="h-4 w-px bg-slate-800" />
+              <div className="h-4 w-px bg-slate-800 hidden sm:block" />
               <div className="flex items-center gap-3">
                 <a
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
-                  className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-sky-400 hover:border-sky-500/50 hover:bg-slate-800 hover:scale-110 transition-all duration-200 shadow-sm"
+                  className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 text-slate-400 hover:text-sky-400 hover:border-sky-500/50 hover:bg-neutral-800 hover:scale-110 transition-all duration-200 shadow-sm"
                 >
-                  <GithubIcon size={18} />
+                  <GithubIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
                 </a>
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
-                  className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-sky-400 hover:border-sky-500/50 hover:bg-slate-800 hover:scale-110 transition-all duration-200 shadow-sm"
+                  className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 text-slate-400 hover:text-sky-400 hover:border-sky-500/50 hover:bg-neutral-800 hover:scale-110 transition-all duration-200 shadow-sm"
                 >
-                  <LinkedinIcon size={18} />
+                  <LinkedinIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
                 </a>
                 <a
                   href={`mailto:${emailAddress}`}
                   aria-label="Send Email to Ndille Enume"
-                  className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-sky-400 hover:border-sky-500/50 hover:bg-slate-800 hover:scale-110 transition-all duration-200 shadow-sm"
+                  className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 text-slate-400 hover:text-sky-400 hover:border-sky-500/50 hover:bg-neutral-800 hover:scale-110 transition-all duration-200 shadow-sm"
                 >
-                  <Mail size={18} />
+                  <Mail className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
                 </a>
               </div>
             </motion.div>
@@ -145,10 +149,11 @@ export default function Hero() {
           {/* Right Column: Terminal Card */}
           <div className="lg:col-span-5 relative">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative rounded-2xl border border-slate-800 bg-slate-950/80 p-5 shadow-2xl shadow-sky-950/40 backdrop-blur-xl"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.85, delay: 0.2, ease: 'easeOut' }}
+              className="relative rounded-2xl border border-neutral-800 bg-neutral-900/90 p-5 shadow-2xl shadow-sky-950/40 backdrop-blur-xl"
             >
               {/* Window Controls */}
               <div className="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-4">
