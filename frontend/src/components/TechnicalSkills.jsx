@@ -58,15 +58,12 @@ export default function TechnicalSkills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-16 space-y-4"
         >
-          <span className="inline-block px-3.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
-            Tech Stack & Capabilities
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-['Space_Grotesk'] text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Space_Grotesk'] text-white tracking-tight leading-tight">
             Technical Architecture & Mastery
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Categorized core competencies across modern full-stack web engineering, cloud backend systems, and developer tooling.
           </p>
         </motion.div>

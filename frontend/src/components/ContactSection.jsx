@@ -110,15 +110,12 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-16 space-y-4"
         >
-          <span className="inline-block px-3.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
-            Let's Connect
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-['Space_Grotesk'] text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Space_Grotesk'] text-white tracking-tight leading-tight">
             Start a Conversation
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Have a project in mind, an engineering role, or a technical inquiry? Send a direct message below.
           </p>
         </motion.div>
@@ -315,7 +312,7 @@ export default function ContactSection() {
                 ) : (
                   <>
                     <Send className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
-                    <span>Send Message to Ebrahimndille@gmail.com</span>
+                    <span>Send Message</span>
                   </>
                 )}
               </button>

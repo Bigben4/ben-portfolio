@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { projectsData } from '../data/projectsData'
 import ProjectCard from './ProjectCard'
-import { FolderGit2, Sparkles } from 'lucide-react'
 
 export default function FeaturedProjects() {
   return (
@@ -11,24 +10,18 @@ export default function FeaturedProjects() {
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
-        {/* Section Title */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4 border-b border-neutral-800 pb-6"
+          className="text-center max-w-3xl mx-auto mb-16 space-y-4"
         >
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-3 border border-blue-500/20">
-              <FolderGit2 className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
-              <span>Production Work & Case Studies</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-['Space_Grotesk'] text-white tracking-tight">
-              Featured Software Engineering Projects
-            </h2>
-          </div>
-          <p className="text-slate-400 text-sm max-w-md">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Space_Grotesk'] text-white tracking-tight leading-tight">
+            Projects
+          </h2>
+          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Architectural breakdowns of production-grade platforms focusing on real-world problem solving, scalability, and engineering impact.
           </p>
         </motion.div>

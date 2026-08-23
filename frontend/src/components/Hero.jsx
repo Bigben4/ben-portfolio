@@ -4,11 +4,10 @@ import {
   Mail,
   ArrowDown,
   FileText,
-  Sparkles,
-  Terminal,
   MessageCircle
 } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './UI/SocialIcons'
+import heroPortrait from '../assets/hero-portrait.webp'
 
 export default function Hero() {
   const whatsAppUrl = 'https://wa.me/237671807750'
@@ -24,25 +23,9 @@ export default function Hero() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Text Content */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Status Pill */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 backdrop-blur-md"
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-semibold text-slate-300 tracking-wide">
-                NDILLE ENUME · FULL-STACK ENGINEER
-              </span>
-            </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column: Text Content (6 cols on desktop for balanced large visual) */}
+          <div className="lg:col-span-6 space-y-6 text-left">
 
             {/* Primary Name & Headline */}
             <motion.div
@@ -146,80 +129,63 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Terminal Card */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Large Hero Portrait with Animated Glowing Laser Border */}
+          <div className="lg:col-span-6 relative flex items-center justify-center w-full">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.92, y: 24 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.85, delay: 0.2, ease: 'easeOut' }}
-              className="relative rounded-2xl border border-neutral-800 bg-neutral-900/90 p-5 shadow-2xl shadow-sky-950/40 backdrop-blur-xl"
+              transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
+              className="relative w-full max-w-lg lg:max-w-xl mx-auto"
             >
-              {/* Window Controls */}
-              <div className="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 text-xs font-mono text-slate-500">engineer-profile.ts</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-sky-500/10 text-[11px] font-mono text-sky-400 border border-sky-500/20">
-                  <Sparkles size={12} />
-                  <span>Production Ready</span>
-                </div>
-              </div>
+              {/* Backlight Ambient Glow Rings */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/30 via-blue-600/25 to-cyan-400/30 blur-3xl rounded-full pointer-events-none transform scale-105" />
+              <div className="absolute -inset-2 bg-gradient-to-b from-sky-500/20 via-transparent to-blue-500/20 rounded-[36px] blur-2xl pointer-events-none" />
 
-              {/* Code Snippet Display */}
-              <div className="space-y-3 font-mono text-xs sm:text-sm leading-relaxed">
-                <div>
-                  <span className="text-purple-400">const</span>{' '}
-                  <span className="text-sky-300">engineer</span> = &#123;
-                </div>
-                <div className="pl-4 space-y-1">
-                  <div>
-                    <span className="text-slate-400">name:</span>{' '}
-                    <span className="text-emerald-400">'Ndille Enume'</span>,
-                  </div>
-                  <div>
-                    <span className="text-slate-400">role:</span>{' '}
-                    <span className="text-emerald-400">'Full-Stack Software Engineer'</span>,
-                  </div>
-                  <div>
-                    <span className="text-slate-400">specialization:</span> [
-                  </div>
-                  <div className="pl-4 text-sky-300">
-                    'React 19', 'Next.js 15', 'Node.js', 'TypeScript', 'PostgreSQL'
-                  </div>
-                  <div>],</div>
-                  <div>
-                    <span className="text-slate-400">focus:</span>{' '}
-                    <span className="text-emerald-400">'High-Performance Web Apps & APIs'</span>
-                  </div>
-                </div>
-                <div>&#125;;</div>
+              {/* Animated Glowing Laser Border Outer Wrapper */}
+              <div className="relative p-[2.5px] rounded-[32px] overflow-hidden shadow-2xl shadow-sky-950/50 group">
+                
+                {/* 360-Degree Continuous Rotating Laser Conic Gradient */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: 'linear' }}
+                  className="absolute -inset-[150%] bg-[conic-gradient(from_0deg,transparent_0_290deg,#38bdf8_325deg,#60a5fa_345deg,#38bdf8_360deg)] pointer-events-none"
+                />
 
-                <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-                  <div className="flex items-center gap-1.5 text-sky-400">
-                    <Terminal size={14} />
-                    <span>ndille@dev:~$ pnpm test:architecture</span>
-                  </div>
-                  <span className="text-emerald-400 font-bold">✓ 100% Passed</span>
-                </div>
-              </div>
+                {/* Additional Glow Diffusion Layer */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: 'linear' }}
+                  className="absolute -inset-[150%] bg-[conic-gradient(from_0deg,transparent_0_290deg,#0284c7_325deg,#38bdf8_360deg)] blur-md opacity-80 pointer-events-none"
+                />
 
-              {/* Key Metrics */}
-              <div className="grid grid-cols-3 gap-3 mt-5 pt-4 border-t border-slate-800/80">
-                <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-                  <div className="text-lg font-bold text-sky-400 font-['Space_Grotesk']">12+</div>
-                  <div className="text-[11px] text-slate-400">Shipped Apps</div>
-                </div>
-                <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-                  <div className="text-lg font-bold text-emerald-400 font-['Space_Grotesk']">99.9%</div>
-                  <div className="text-[11px] text-slate-400">API Uptime</div>
-                </div>
-                <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-                  <div className="text-lg font-bold text-cyan-400 font-['Space_Grotesk']">&lt; 100ms</div>
-                  <div className="text-[11px] text-slate-400">Avg Latency</div>
+                {/* Static Inner Dark Border Layer */}
+                <div className="relative rounded-[30px] bg-gradient-to-b from-neutral-900/95 via-neutral-950/98 to-black p-4 sm:p-5 backdrop-blur-2xl overflow-hidden">
+                  
+                  {/* Subtle Background Grid Pattern inside Card */}
+                  <div className="absolute inset-0 bg-[radial-gradient(#38bdf815_1px,transparent_1px)] [background-size:18px_18px] pointer-events-none" />
+                  
+                  {/* Image Presentation Box */}
+                  <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-slate-900/80 via-neutral-950/90 to-black flex items-center justify-center pt-6 px-4 border border-slate-800/60">
+                    <img
+                      src={heroPortrait}
+                      alt="Ndille Enume - Full-Stack Software Engineer"
+                      className="w-full h-auto max-h-[520px] sm:max-h-[580px] lg:max-h-[620px] object-contain object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] transform transition-transform duration-500 group-hover:scale-[1.02]"
+                      loading="eager"
+                    />
+                    
+                    {/* Subtle Bottom Vignette Gradient */}
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Floating Bottom Card / Status Footer */}
+                  <div className="mt-4 p-3.5 rounded-xl bg-neutral-900/90 border border-slate-800/90 backdrop-blur-md flex items-center justify-between text-xs sm:text-sm font-mono shadow-lg">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#34d399]" />
+                      <span className="text-slate-200 font-bold tracking-tight">Ndille Enume</span>
+                    </div>
+                    <span className="text-sky-400 font-semibold text-xs font-mono">React · Next.js · Node.js</span>
+                  </div>
                 </div>
               </div>
             </motion.div>

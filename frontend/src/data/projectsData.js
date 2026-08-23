@@ -1,16 +1,18 @@
+import questopsImg from '../assets/2026-reepls-taskflow.webp'
+import heritageVaultImg from '../assets/Screenshot From 2026-08-19 15-59-12.webp'
+import shopcraftImg from '../assets/Screenshot From 2026-08-19 15-59-18.webp'
+import omnipulseImg from '../assets/2026-prometheus-hackathon.webp'
+
 export const projectsData = [
   {
     id: "questops",
     title: "QuestOps",
     category: "Full-Stack Developer Platform",
     tagline: "Developer Workflow & Real-Time Task Automation Engine",
-    demoUrl: "https://questops-demo.vercel.app",
+    demoUrl: "https://quest-ops.vercel.app/",
     githubUrl: "https://github.com/ben-dev/questops",
+    image: questopsImg,
     featured: true,
-    demoAccount: {
-      email: "guest@questops.dev",
-      password: "Password123!"
-    },
     problemStatement:
       "Distributed engineering teams suffered from fragmented release tracking and manual approval bottlenecks, delaying delivery pipelines.",
     technicalArchitecture:
@@ -37,11 +39,8 @@ export const projectsData = [
     tagline: "Interactive Multi-Generational Genealogy & Media Archival Engine",
     demoUrl: "https://heritage-vault.vercel.app",
     githubUrl: "https://github.com/ben-dev/heritage-vault",
+    image: heritageVaultImg,
     featured: true,
-    demoAccount: {
-      email: "guest@heritagevault.app",
-      password: "Heritage2025!"
-    },
     problemStatement:
       "Families lacked a private, high-security digital workspace to map complex ancestral trees and stream high-resolution historical oral archives.",
     technicalArchitecture:
@@ -67,12 +66,8 @@ export const projectsData = [
     tagline: "Scalable Multi-Tenant E-Commerce Platform with Real-Time Inventory",
     demoUrl: "https://shopcraft-storefront.vercel.app",
     githubUrl: "https://github.com/ben-dev/shopcraft-engine",
+    image: shopcraftImg,
     featured: true,
-    demoAccount: {
-      email: "admin@shopcraft.io",
-      
-      password: "ShopAdmin2025!"
-    },
     problemStatement:
       "High-volume retailers suffered database deadlocks and inventory drift during high-concurrency flash sale traffic spikes.",
     technicalArchitecture:
@@ -98,11 +93,8 @@ export const projectsData = [
     tagline: "High-Throughput Streaming Log Parser & Semantic Incident Triage",
     demoUrl: "https://omnipulse-ai.vercel.app",
     githubUrl: "https://github.com/ben-dev/omnipulse-ai",
+    image: omnipulseImg,
     featured: true,
-    demoAccount: {
-      email: "analyst@omnipulse.ai",
-      password: "Pulse2025!"
-    },
     problemStatement:
       "SRE teams wasted critical incident response hours parsing unstructured raw log streams without automated root-cause recommendations.",
     technicalArchitecture:

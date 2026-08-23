@@ -37,14 +37,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Live Build Status Indicator */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-slate-300">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span>Systems Operational · Built with React & Vite</span>
-        </div>
 
         {/* Quick Back to Top Anchor Link */}
         <a

@@ -7,21 +7,18 @@ export default function ExperienceCommunity() {
   return (
     <section id="experience" className="py-24 border-b border-neutral-800 bg-black relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
-        {/* Section Title */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-16 space-y-4"
         >
-          <span className="inline-block px-3.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
-            Career Journey & Hackathons
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-['Space_Grotesk'] text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Space_Grotesk'] text-white tracking-tight leading-tight">
             Professional Experience & Community Impact
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Track record of engineered software solutions, measurable technical results, and leadership in active tech communities.
           </p>
         </motion.div>
@@ -43,7 +40,7 @@ export default function ExperienceCommunity() {
                 <h3 className="text-xl font-bold font-['Space_Grotesk'] text-white">
                   Software Engineering Experience
                 </h3>
-                <p className="text-xs text-slate-400">Action Verb + Quantified Impact</p>
+                <p className="text-xs text-slate-400">Production systems, scalable architectures, and measurable results</p>
               </div>
             </motion.div>
 

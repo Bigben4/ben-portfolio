@@ -54,7 +54,7 @@ function MilestoneImageSlider({ images, singleImage, title, isActive, date, cate
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group w-full h-80 sm:h-96 md:h-[420px] lg:h-[480px] rounded-2xl overflow-hidden bg-neutral-900 shadow-2xl relative transition-all duration-1000 select-none ${
+      className={`group w-full h-60 sm:h-72 md:h-80 lg:h-[340px] rounded-2xl overflow-hidden bg-neutral-900 shadow-2xl relative transition-all duration-1000 select-none ${
         isActive
           ? 'border-2 border-blue-500/60 shadow-[0_0_30px_rgba(59,130,246,0.2)]'
           : 'border border-neutral-800'
@@ -168,8 +168,8 @@ function MilestoneRow({ item, index, isEven }) {
         setIsActive(entry.isIntersecting)
       },
       {
-        rootMargin: '-25% 0px -25% 0px',
-        threshold: 0.15
+        rootMargin: '-15% 0px -15% 0px',
+        threshold: 0.2
       }
     )
 
@@ -181,7 +181,7 @@ function MilestoneRow({ item, index, isEven }) {
     <div
       ref={rowRef}
       id={`journal-milestone-${item.id}`}
-      className="min-h-[75vh] md:min-h-[85vh] flex items-center justify-center relative my-12 md:my-20 w-full"
+      className="flex items-center justify-center relative my-8 md:my-12 w-full"
     >
       {/* Central Junction Node (Desktop: Center Axis) */}
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20 items-center justify-center pointer-events-none">
@@ -221,7 +221,7 @@ function MilestoneRow({ item, index, isEven }) {
             : 'opacity-30 scale-[0.97] blur-[0.5px]'
         }`}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-14 items-center w-full">
           
           {/* TEXT & BADGES BLOCK */}
           <div
@@ -230,35 +230,35 @@ function MilestoneRow({ item, index, isEven }) {
             }`}
           >
             {/* Badges */}
-            <div className="flex flex-wrap items-center gap-3 mb-4">
+            <div className="flex flex-wrap items-center gap-2.5 mb-3">
               {/* Date Badge */}
               <span
-                className={`font-mono text-xs sm:text-sm px-4 py-1.5 rounded-full border font-semibold inline-flex items-center gap-2 transition-all duration-500 ${
+                className={`font-mono text-xs sm:text-sm px-3.5 py-1 rounded-full border font-semibold inline-flex items-center gap-1.5 transition-all duration-500 ${
                   isActive
                     ? 'border-blue-500/40 bg-blue-950/30 text-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.3)]'
                     : 'border-neutral-800 bg-neutral-900/30 text-neutral-500'
                 }`}
               >
-                <Calendar className={`w-4 h-4 ${isActive ? 'text-blue-400' : 'text-neutral-500'}`} />
+                <Calendar className={`w-3.5 h-3.5 ${isActive ? 'text-blue-400' : 'text-neutral-500'}`} />
                 {item.date}
               </span>
 
               {/* Category Badge */}
               <span
-                className={`text-xs sm:text-sm px-3.5 py-1.5 rounded-full font-semibold border inline-flex items-center gap-1.5 transition-all duration-500 ${
+                className={`text-xs sm:text-sm px-3 py-1 rounded-full font-semibold border inline-flex items-center gap-1.5 transition-all duration-500 ${
                   isActive
                     ? `${item.badgeColor} shadow-[0_0_10px_rgba(59,130,246,0.25)]`
                     : 'border-neutral-800 bg-neutral-900/30 text-neutral-500'
                 }`}
               >
-                <IconComponent className="w-4 h-4" />
+                <IconComponent className="w-3.5 h-3.5" />
                 {item.category}
               </span>
             </div>
 
             {/* Title */}
             <h3
-              className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight font-['Space_Grotesk'] leading-[1.15] mb-4 transition-all duration-500 ${
+              className={`text-2xl sm:text-3xl md:text-4xl font-black tracking-tight font-['Space_Grotesk'] leading-[1.15] mb-3 transition-all duration-500 ${
                 isActive
                   ? 'text-white drop-shadow-[0_0_12px_rgba(59,130,246,0.25)]'
                   : 'text-neutral-400'
@@ -274,7 +274,7 @@ function MilestoneRow({ item, index, isEven }) {
 
             {/* Description */}
             <p
-              className={`text-base sm:text-lg leading-relaxed max-w-xl transition-colors duration-500 ${
+              className={`text-sm sm:text-base leading-relaxed max-w-xl transition-colors duration-500 ${
                 isActive ? 'text-neutral-300' : 'text-neutral-500'
               }`}
             >
@@ -323,7 +323,7 @@ export default function DeveloperJournal() {
   return (
     <section
       id="journal"
-      className="relative w-full bg-black py-24 sm:py-32 border-b border-neutral-800 text-slate-100 overflow-hidden"
+      className="relative w-full bg-black py-16 sm:py-24 border-b border-neutral-800 text-slate-100 overflow-hidden"
     >
       {/* Background Dot Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40" />
@@ -335,18 +335,7 @@ export default function DeveloperJournal() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20 sm:mb-28 space-y-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/40 text-blue-400 text-xs sm:text-sm font-semibold uppercase tracking-wider border border-blue-500/30 shadow-[0_0_12px_rgba(59,130,246,0.3)]"
-          >
-            <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" />
-            <span>Chronicles & Event Highlights</span>
-          </motion.div>
-
+        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 space-y-3">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -364,7 +353,7 @@ export default function DeveloperJournal() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            Timeline of hackathon victories, developer summit presentations, and major engineering releases by NDILLE ENUME.
+            Timeline of hackathon victories, developer summit presentations, and major engineering releases.
           </motion.p>
         </div>
 
