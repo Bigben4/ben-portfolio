@@ -5,7 +5,12 @@ import { Briefcase, Trophy, Users, CheckCircle2, Calendar, MapPin } from 'lucide
 
 export default function ExperienceCommunity() {
   return (
-    <section id="experience" className="py-24 border-b border-neutral-800 bg-black relative">
+    <section id="experience" className="py-24 border-b border-neutral-800 bg-black relative overflow-hidden">
+      {/* Contrasting Ambient Glows */}
+      <div className="absolute top-1/3 -left-20 w-[600px] h-[600px] bg-blue-600/10 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 -right-20 w-[500px] h-[500px] bg-emerald-600/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-30" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <motion.div

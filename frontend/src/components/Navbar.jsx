@@ -18,7 +18,7 @@ export default function Navbar() {
         setIsScrolled(false)
       }
 
-      const sections = ['home', 'projects', 'skills', 'experience', 'journal', 'contact']
+      const sections = ['home', 'about', 'projects', 'skills', 'experience', 'journal', 'contact']
       const scrollPosition = window.scrollY + 200
 
       for (const sectionId of sections) {
@@ -40,6 +40,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '#home', id: 'home' },
+    { name: 'About', href: '#about', id: 'about' },
     { name: 'Projects', href: '#projects', id: 'projects' },
     { name: 'Skills', href: '#skills', id: 'skills' },
     { name: 'Experience', href: '#experience', id: 'experience' },
@@ -59,30 +60,30 @@ export default function Navbar() {
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
-        {/* Brand Logo */}
+      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16 flex items-center justify-between gap-4 md:gap-8 lg:gap-12">
+        {/* Brand Logo & Name (Enlarged & Positioned on Extreme Left) */}
         <a
           href="#home"
-          className="group flex items-center gap-2.5 text-lg font-bold font-['Space_Grotesk'] text-white tracking-tight hover:text-sky-400 transition-colors"
+          className="group flex items-center gap-3 text-xl sm:text-2xl md:text-3xl font-black font-['Space_Grotesk'] text-white tracking-tight hover:text-sky-300 transition-all shrink-0"
           aria-label="Ndille Enume Portfolio Home"
         >
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all shrink-0">
-            <Code2 className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+          <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-950 group-hover:shadow-[0_0_15px_#38bdf8] transition-all shrink-0">
+            <Code2 className="w-6 h-6 sm:w-7 sm:h-7 shrink-0" />
           </div>
-          <span>
-            NDILLE <span className="text-sky-400">ENUME</span>
+          <span className="tracking-tight">
+            NDILLE <span className="text-sky-400 group-hover:text-cyan-300 transition-colors">ENUME</span>
           </span>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-2 bg-slate-900/70 p-2 rounded-full border border-slate-800/90 backdrop-blur-md shadow-lg shadow-black/40">
+        {/* Desktop Navigation with Increased Length & Spacing */}
+        <nav className="hidden md:flex items-center gap-2.5 lg:gap-3.5 xl:gap-4 bg-slate-900/80 p-2 lg:p-2.5 px-3 lg:px-5 rounded-full border border-slate-800/90 backdrop-blur-md shadow-xl shadow-black/50 mx-2 lg:mx-6 shrink-0">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${
+                className={`px-4 sm:px-5 lg:px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-200 ${
                   isActive
                     ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/30 font-bold scale-[1.02]'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
@@ -95,8 +96,8 @@ export default function Navbar() {
         </nav>
 
         {/* Quick Social Proof Icons & WhatsApp CTA */}
-        <div className="hidden md:flex items-center gap-4">
-          <div className="flex items-center gap-2 border-r border-slate-800 pr-4">
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
+          <div className="flex items-center gap-2 border-r border-slate-800 pr-4 lg:pr-6">
             <a
               href="https://github.com"
               target="_blank"

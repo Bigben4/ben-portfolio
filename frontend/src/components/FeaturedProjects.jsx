@@ -5,9 +5,11 @@ import ProjectCard from './ProjectCard'
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="py-24 border-b border-neutral-800 bg-black relative">
-      {/* Background Radial Subtle Glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+    <section id="projects" className="py-24 border-b border-neutral-800/90 bg-black relative overflow-hidden">
+      {/* Background Radial Ambient Glows */}
+      <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-blue-600/10 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-cyan-600/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-30" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Section Header */}

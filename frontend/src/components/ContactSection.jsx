@@ -99,9 +99,11 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 border-b border-slate-800/60 relative">
-      {/* Background Radial Glow */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+    <section id="contact" className="py-24 border-b border-neutral-800 bg-gradient-to-b from-neutral-950 via-slate-950 to-black relative overflow-hidden">
+      {/* Background Radial Ambient Glows */}
+      <div className="absolute top-1/3 -right-20 w-[500px] h-[500px] bg-sky-500/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-emerald-500/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#38bdf806_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Section Header */}

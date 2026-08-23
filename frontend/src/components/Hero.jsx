@@ -39,10 +39,15 @@ export default function Hero() {
                 NDILLE <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">ENUME</span>
               </h1>
               
-              {/* Fluid subtitle without mobile line overflow */}
-              <p className="text-slate-300 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl font-medium">
-                I am a Full-Stack Software Engineer specialized in React, Next.js, and Node.js. I build high-performance web applications and scalable API architectures tailored for production environments.
-              </p>
+              {/* Strong Value-Driven Branding Statement */}
+              <div className="pt-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-['Space_Grotesk'] text-slate-100 leading-[1.2] tracking-tight">
+                  I engineer high-impact solutions that{' '}
+                  <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                    solve real-world problems.
+                  </span>
+                </h2>
+              </div>
             </motion.div>
 
             {/* Action Buttons (CTAs) */}
@@ -176,15 +181,6 @@ export default function Hero() {
                     
                     {/* Subtle Bottom Vignette Gradient */}
                     <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
-                  </div>
-
-                  {/* Floating Bottom Card / Status Footer */}
-                  <div className="mt-4 p-3.5 rounded-xl bg-neutral-900/90 border border-slate-800/90 backdrop-blur-md flex items-center justify-between text-xs sm:text-sm font-mono shadow-lg">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#34d399]" />
-                      <span className="text-slate-200 font-bold tracking-tight">Ndille Enume</span>
-                    </div>
-                    <span className="text-sky-400 font-semibold text-xs font-mono">React · Next.js · Node.js</span>
                   </div>
                 </div>
               </div>

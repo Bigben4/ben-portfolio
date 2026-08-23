@@ -125,31 +125,6 @@ function MilestoneImageSlider({ images, singleImage, title, isActive, date, cate
           </button>
         </>
       )}
-
-      {/* Bottom Footer Tags */}
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none z-20">
-        <span
-          className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-mono backdrop-blur-md transition-all duration-500 ${
-            isActive
-              ? 'bg-black/85 border border-blue-500/40 text-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.3)]'
-              : 'bg-black/60 border border-neutral-800 text-neutral-500'
-          }`}
-        >
-          <Calendar className="w-4 h-4 text-blue-400" />
-          {date}
-        </span>
-
-        <span
-          className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium backdrop-blur-md transition-all duration-500 ${
-            isActive
-              ? 'bg-black/85 border border-blue-500/40 text-blue-300'
-              : 'bg-black/60 border border-neutral-800 text-neutral-500'
-          }`}
-        >
-          <IconComponent className="w-4 h-4 text-blue-400" />
-          {category}
-        </span>
-      </div>
     </div>
   )
 }
@@ -323,10 +298,10 @@ export default function DeveloperJournal() {
   return (
     <section
       id="journal"
-      className="relative w-full bg-black py-16 sm:py-24 border-b border-neutral-800 text-slate-100 overflow-hidden"
+      className="relative w-full bg-gradient-to-b from-neutral-950 via-slate-950 to-neutral-950 py-16 sm:py-24 border-b border-slate-800/80 text-slate-100 overflow-hidden"
     >
       {/* Background Dot Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40" />
+      <div className="absolute inset-0 bg-[radial-gradient(#38bdf806_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40" />
 
       {/* Atmospheric Royal Blue Ambient Glows */}
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-blue-600/10 blur-[160px] rounded-full pointer-events-none" />

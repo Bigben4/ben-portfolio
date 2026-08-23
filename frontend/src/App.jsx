@@ -2,6 +2,7 @@ import React from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import AboutMe from './components/AboutMe'
 import FeaturedProjects from './components/FeaturedProjects'
 import TechnicalSkills from './components/TechnicalSkills'
 import ExperienceCommunity from './components/ExperienceCommunity'
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <main id="main-content" className="relative z-0">
         <Hero />
+        <AboutMe />
         <FeaturedProjects />
         <TechnicalSkills />
         <ExperienceCommunity />

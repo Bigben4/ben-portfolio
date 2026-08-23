@@ -50,7 +50,12 @@ const iconMap = {
 
 export default function TechnicalSkills() {
   return (
-    <section id="skills" className="py-24 border-b border-slate-800/60 relative">
+    <section id="skills" className="py-24 border-b border-slate-800/80 bg-gradient-to-b from-neutral-950 via-slate-950 to-neutral-950 relative overflow-hidden">
+      {/* Contrasting Multi-Color Ambient Glows */}
+      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-sky-600/10 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-purple-600/10 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#38bdf806_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <motion.div
