@@ -33,18 +33,18 @@ export default function AboutMe() {
           </h2>
         </motion.div>
 
-        {/* Minimalist 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        {/* Minimalist 2-Column Grid with Increased Size & Typography */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
-          {/* Left Column: Clean Portrait */}
+          {/* Left Column: Enlarged Clean Portrait (6 Cols) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="lg:col-span-5 relative flex items-center justify-center"
+            className="lg:col-span-6 relative flex items-center justify-center w-full"
           >
-            <div className="relative w-full max-w-sm rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl">
+            <div className="relative w-full max-w-md lg:max-w-lg rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl shadow-sky-950/20">
               <img
                 src={aboutPortrait}
                 alt="Ndille Enume"
@@ -54,38 +54,24 @@ export default function AboutMe() {
             </div>
           </motion.div>
 
-          {/* Right Column: Settled Minimalist Text */}
+          {/* Right Column: Settled Large Minimalist Text (6 Cols) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-            className="lg:col-span-7 space-y-6 text-left"
+            className="lg:col-span-6 space-y-8 text-left"
           >
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-bold font-['Space_Grotesk'] text-white leading-snug">
-                Building purposeful digital solutions that solve real problems.
-              </h3>
-            </div>
-
-            <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
-              <p>
-                I develop modern web and mobile applications with a focus on performance, scalability, and clean user experience.
-              </p>
-              <p>
-                I also work with AI automation systems and RAG pipelines to build smarter and more efficient digital solutions.
-              </p>
-              <p className="text-slate-200 font-medium">
-                My goal is to create software that solves real-world problems and helps businesses and communities grow.
-              </p>
-            </div>
+            <p className="text-slate-200 text-xl sm:text-2xl md:text-3xl leading-relaxed font-normal tracking-tight">
+              Hi, I'm <span className="text-white font-black">NDILLE ENUME</span>. I develop modern web and mobile applications with a focus on performance, scalability, and clean user experience. I also work with AI automation systems and RAG pipelines to build smarter and more efficient digital solutions. My goal is to create software that solves real-world problems and helps businesses and communities grow.
+            </p>
 
             {/* Clean Minimalist Focus Tags */}
-            <div className="pt-2 flex flex-wrap gap-2">
+            <div className="pt-2 flex flex-wrap gap-2.5">
               {focusAreas.map((area, idx) => (
                 <span
                   key={idx}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-neutral-900/90 text-slate-300 border border-neutral-800"
+                  className="px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-neutral-900/90 text-slate-300 border border-neutral-800"
                 >
                   {area}
                 </span>
@@ -93,18 +79,18 @@ export default function AboutMe() {
             </div>
 
             {/* Direct Links */}
-            <div className="pt-4 flex items-center gap-5">
+            <div className="pt-2 flex items-center gap-6">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors group"
+                className="inline-flex items-center gap-2 text-base font-semibold text-sky-400 hover:text-sky-300 transition-colors group"
               >
                 <span>View Selected Projects</span>
-                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
               </a>
               <span className="text-neutral-700">·</span>
               <a
                 href="#contact"
-                className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
+                className="text-base font-medium text-slate-400 hover:text-white transition-colors"
               >
                 Get in Touch
               </a>

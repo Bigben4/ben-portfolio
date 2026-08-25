@@ -22,13 +22,13 @@ function MilestoneImageSlider({ images, singleImage, title, isActive, date, cate
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
 
-  // Auto-switch photos of the current milestone every 1 second when active
+  // Auto-switch photos of the current milestone every 4 seconds when active (slow, cinematic pace)
   useEffect(() => {
     if (!isActive || isHovered || imageList.length <= 1) return
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % imageList.length)
-    }, 1000)
+    }, 4000)
 
     return () => clearInterval(interval)
   }, [isActive, isHovered, imageList.length])
@@ -54,9 +54,9 @@ function MilestoneImageSlider({ images, singleImage, title, isActive, date, cate
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group w-full h-60 sm:h-72 md:h-80 lg:h-[340px] rounded-2xl overflow-hidden bg-neutral-900 shadow-2xl relative transition-all duration-1000 select-none ${
+      className={`group w-full h-72 sm:h-88 md:h-[400px] lg:h-[450px] xl:h-[480px] rounded-3xl overflow-hidden bg-neutral-900 shadow-2xl relative transition-all duration-1000 select-none ${
         isActive
-          ? 'border-2 border-blue-500/60 shadow-[0_0_30px_rgba(59,130,246,0.2)]'
+          ? 'border-2 border-sky-500/70 shadow-[0_0_35px_rgba(56,189,248,0.25)]'
           : 'border border-neutral-800'
       }`}
     >
@@ -156,19 +156,19 @@ function MilestoneRow({ item, index, isEven }) {
     <div
       ref={rowRef}
       id={`journal-milestone-${item.id}`}
-      className="flex items-center justify-center relative my-8 md:my-12 w-full"
+      className="flex items-center justify-center relative my-16 sm:my-24 md:my-32 lg:my-40 w-full"
     >
       {/* Central Junction Node (Desktop: Center Axis) */}
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20 items-center justify-center pointer-events-none">
         <div
-          className={`w-5 h-5 rounded-full border-2 bg-black flex items-center justify-center transition-all duration-500 ${
+          className={`w-6 h-6 rounded-full border-2 bg-neutral-950 flex items-center justify-center transition-all duration-500 ${
             isActive
-              ? 'border-blue-500 shadow-[0_0_14px_#3b82f6] scale-110'
-              : 'border-neutral-700 shadow-none opacity-40 scale-90'
+              ? 'border-sky-400 shadow-[0_0_18px_#38bdf8] scale-125 ring-4 ring-sky-500/20'
+              : 'border-neutral-700 shadow-none opacity-50 scale-90'
           }`}
         >
           {isActive && (
-            <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse shadow-[0_0_6px_#60a5fa]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse shadow-[0_0_8px_#38bdf8]" />
           )}
         </div>
       </div>
@@ -176,14 +176,14 @@ function MilestoneRow({ item, index, isEven }) {
       {/* Mobile Node (Left-aligned stem) */}
       <div className="md:hidden absolute left-4 sm:left-6 -translate-x-1/2 top-8 z-20 items-center justify-center flex pointer-events-none">
         <div
-          className={`w-5 h-5 rounded-full border-2 bg-black flex items-center justify-center transition-all duration-500 ${
+          className={`w-5 h-5 rounded-full border-2 bg-neutral-950 flex items-center justify-center transition-all duration-500 ${
             isActive
-              ? 'border-blue-500 shadow-[0_0_14px_#3b82f6] scale-110'
+              ? 'border-sky-400 shadow-[0_0_14px_#38bdf8] scale-110'
               : 'border-neutral-700 shadow-none opacity-40 scale-90'
           }`}
         >
           {isActive && (
-            <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse shadow-[0_0_6px_#60a5fa]" />
+            <div className="w-2 h-2 rounded-full bg-sky-400 animate-pulse shadow-[0_0_6px_#38bdf8]" />
           )}
         </div>
       </div>
@@ -196,12 +196,14 @@ function MilestoneRow({ item, index, isEven }) {
             : 'opacity-30 scale-[0.97] blur-[0.5px]'
         }`}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-14 items-center w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 lg:gap-28 xl:gap-36 items-center w-full">
           
           {/* TEXT & BADGES BLOCK */}
           <div
             className={`w-full ${
-              isEven ? 'md:order-1' : 'md:order-2'
+              isEven
+                ? 'md:order-1 md:pr-4 lg:pr-8'
+                : 'md:order-2 md:pl-4 lg:pl-8'
             }`}
           >
             {/* Badges */}
@@ -260,7 +262,9 @@ function MilestoneRow({ item, index, isEven }) {
           {/* LARGE PHOTO CARD WITH MULTI-IMAGE SWITCHING */}
           <div
             className={`w-full ${
-              isEven ? 'md:order-2' : 'md:order-1'
+              isEven
+                ? 'md:order-2 md:pl-4 lg:pl-8'
+                : 'md:order-1 md:pr-4 lg:pr-8'
             }`}
           >
             <MilestoneImageSlider
@@ -338,27 +342,27 @@ export default function DeveloperJournal() {
           {/* Central Stem (Desktop) */}
           <div
             aria-hidden="true"
-            className="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[2px] bg-neutral-800/80 pointer-events-none hidden md:block"
+            className="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[3px] bg-slate-800 pointer-events-none hidden md:block"
           />
 
           {/* Animated Glowing Progress Line (Desktop) */}
           <motion.div
             style={{ scaleY, originY: 0 }}
             aria-hidden="true"
-            className="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-blue-500 via-sky-400 to-blue-600 shadow-[0_0_14px_#3b82f6] pointer-events-none hidden md:block origin-top"
+            className="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[3px] bg-gradient-to-b from-sky-400 via-blue-500 to-cyan-400 shadow-[0_0_18px_#38bdf8] pointer-events-none hidden md:block origin-top"
           />
 
           {/* Left Stem (Mobile) */}
           <div
             aria-hidden="true"
-            className="absolute left-4 sm:left-6 top-4 bottom-4 w-[2px] bg-neutral-800 pointer-events-none md:hidden"
+            className="absolute left-4 sm:left-6 top-4 bottom-4 w-[3px] bg-slate-800 pointer-events-none md:hidden"
           />
 
           {/* Animated Glowing Progress Line (Mobile) */}
           <motion.div
             style={{ scaleY, originY: 0 }}
             aria-hidden="true"
-            className="absolute left-4 sm:left-6 top-4 bottom-4 w-[2px] bg-gradient-to-b from-blue-500 via-sky-400 to-blue-600 shadow-[0_0_12px_#3b82f6] pointer-events-none md:hidden origin-top"
+            className="absolute left-4 sm:left-6 top-4 bottom-4 w-[3px] bg-gradient-to-b from-sky-400 via-blue-500 to-cyan-400 shadow-[0_0_16px_#38bdf8] pointer-events-none md:hidden origin-top"
           />
 
           {/* Milestone Rows List */}

@@ -7,14 +7,11 @@ import {
   ArrowUpRight,
   Globe,
   RotateCw,
-  Eye,
-  MonitorPlay,
   Loader2
 } from 'lucide-react'
 import { GithubIcon } from './UI/SocialIcons'
 
 export default function ProjectCard({ project, index = 0 }) {
-  const [viewMode, setViewMode] = useState(project.demoUrl ? 'live' : 'image') // 'live' | 'image'
   const [iframeLoading, setIframeLoading] = useState(true)
   const [iframeKey, setIframeKey] = useState(0)
 
@@ -27,10 +24,15 @@ export default function ProjectCard({ project, index = 0 }) {
     setIframeKey((prev) => prev + 1)
   }
 
-  const toggleViewMode = (e, mode) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setViewMode(mode)
+  // Extract domain for browser address bar display
+  const getDisplayUrl = () => {
+    if (!project.demoUrl) return project.githubUrl ? 'github.com/repository' : 'localhost:3000'
+    try {
+      const parsed = new URL(project.demoUrl)
+      return parsed.hostname.replace(/^www\./, '')
+    } catch {
+      return project.demoUrl.replace(/^https?:\/\//, '')
+    }
   }
 
   return (
@@ -58,7 +60,7 @@ export default function ProjectCard({ project, index = 0 }) {
                 {project.title}
               </h3>
               <p className="text-xs text-slate-400 font-medium mt-1">
-                {project.tagline}
+                {project.role}
               </p>
             </div>
 
@@ -92,7 +94,7 @@ export default function ProjectCard({ project, index = 0 }) {
             </div>
           </div>
 
-          {/* Interactive Browser Frame Preview Container */}
+          {/* Interactive Browser Frame Live Preview Container */}
           <div className="relative rounded-xl overflow-hidden border border-slate-800/90 bg-neutral-950 shadow-xl group/browser transition-all duration-300 hover:border-sky-500/50">
             {/* Browser Header Bar */}
             <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 border-b border-slate-800/80 bg-neutral-900/95 text-slate-400 text-[11px] font-mono select-none">
@@ -103,41 +105,15 @@ export default function ProjectCard({ project, index = 0 }) {
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
               </div>
 
-              {/* Mode Switcher Pills */}
-              {project.demoUrl && project.image && (
-                <div className="flex items-center gap-1 bg-neutral-950 p-0.5 rounded-lg border border-slate-800 text-[10px]">
-                  <button
-                    type="button"
-                    onClick={(e) => toggleViewMode(e, 'live')}
-                    className={`px-2 py-0.5 rounded-md flex items-center gap-1 transition-all ${
-                      viewMode === 'live'
-                        ? 'bg-sky-500 text-slate-950 font-bold shadow-sm'
-                        : 'text-slate-400 hover:text-white'
-                    }`}
-                    title="Live interactive web preview"
-                  >
-                    <MonitorPlay className="w-3 h-3" />
-                    <span>Live</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={(e) => toggleViewMode(e, 'image')}
-                    className={`px-2 py-0.5 rounded-md flex items-center gap-1 transition-all ${
-                      viewMode === 'image'
-                        ? 'bg-sky-500 text-slate-950 font-bold shadow-sm'
-                        : 'text-slate-400 hover:text-white'
-                    }`}
-                    title="Snapshot view"
-                  >
-                    <Eye className="w-3 h-3" />
-                    <span>Image</span>
-                  </button>
-                </div>
-              )}
+              {/* Browser URL Bar Display */}
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-neutral-950 border border-slate-800/80 text-[10px] text-slate-300 max-w-[180px] sm:max-w-[240px] truncate">
+                <Globe className="w-3 h-3 text-sky-400 shrink-0" />
+                <span className="truncate">{getDisplayUrl()}</span>
+              </div>
 
-              {/* Browser URL Bar + Actions */}
+              {/* Browser Actions: Reload & Launch */}
               <div className="flex items-center gap-1.5">
-                {project.demoUrl && viewMode === 'live' && (
+                {project.demoUrl && (
                   <button
                     type="button"
                     onClick={handleReloadIframe}
@@ -161,12 +137,11 @@ export default function ProjectCard({ project, index = 0 }) {
               </div>
             </div>
 
-            {/* Viewport Display Area */}
+            {/* Viewport Live Preview Display Area */}
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
-              {/* Option 1: Live Interactive Iframe Embed */}
-              {project.demoUrl && viewMode === 'live' ? (
+              {project.demoUrl ? (
                 <div className="relative w-full h-full overflow-hidden">
-                  {/* Loading Shimmer */}
+                  {/* Loading Spinner */}
                   {iframeLoading && (
                     <div className="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center gap-2 z-20 text-slate-400 text-xs font-mono">
                       <Loader2 className="w-6 h-6 text-sky-400 animate-spin" />
@@ -188,7 +163,7 @@ export default function ProjectCard({ project, index = 0 }) {
                   />
                 </div>
               ) : (
-                /* Option 2: Image Snapshot Preview with Click-To-Open */
+                /* Fallback Image Preview if no demo URL */
                 <a
                   href={targetUrl}
                   target="_blank"
@@ -198,16 +173,10 @@ export default function ProjectCard({ project, index = 0 }) {
                 >
                   <img
                     src={project.image}
-                    alt={`${project.title} live interface preview`}
+                    alt={`${project.title} preview`}
                     className="w-full h-full object-cover object-top transform transition-transform duration-700 group-hover/img:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 backdrop-blur-[2px]">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-sky-500 text-slate-950 font-bold text-xs shadow-xl shadow-sky-500/40 transform -translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300">
-                      <span>Open Live Site</span>
-                      <ExternalLink className="w-4 h-4 shrink-0" />
-                    </div>
-                  </div>
                 </a>
               )}
             </div>
@@ -218,57 +187,36 @@ export default function ProjectCard({ project, index = 0 }) {
             {/* Problem Statement */}
             <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-800/80">
               <h4 className="font-semibold text-sky-400 text-xs flex items-center gap-1.5 mb-1 uppercase tracking-wider">
+                <Layers className="w-3.5 h-3.5" />
                 <span>Problem Statement</span>
               </h4>
-              <p className="text-slate-300">{project.problemStatement}</p>
+              <p className="text-slate-300">{project.problemStatement || project.problem}</p>
             </div>
 
             {/* Technical Architecture */}
-            <div className="bg-neutral-900/60 p-3 rounded-lg border border-neutral-800">
+            <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-800/80">
               <h4 className="font-semibold text-purple-400 text-xs flex items-center gap-1.5 mb-1 uppercase tracking-wider">
-                <Layers className="w-4 h-4 shrink-0" />
+                <Cpu className="w-3.5 h-3.5" />
                 <span>Technical Architecture</span>
               </h4>
-              <p className="text-slate-300">{project.technicalArchitecture}</p>
-            </div>
-
-            {/* Key Engineering Challenge */}
-            <div className="bg-neutral-900/60 p-3 rounded-lg border border-neutral-800">
-              <h4 className="font-semibold text-emerald-400 text-xs flex items-center gap-1.5 mb-1 uppercase tracking-wider">
-                <Cpu className="w-4 h-4 shrink-0" />
-                <span>Key Engineering Challenge</span>
-              </h4>
-              <p className="text-slate-300">{project.engineeringChallenge}</p>
+              <p className="text-slate-300">{project.technicalArchitecture || project.solution}</p>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section: Tech Stack Badges & Launch CTA Button */}
-        <div className="pt-4 border-t border-slate-800/70 space-y-3">
-          {/* Tech Stack Badges */}
+        {/* Card Footer: Tech Stack Badges */}
+        <div className="pt-4 border-t border-slate-800/80 space-y-3">
+          {/* Tech Stack Pills */}
           <div className="flex flex-wrap gap-1.5">
-            {project.technologies.map((tech) => (
+            {(project.technologies || project.techStack || []).map((tech) => (
               <span
                 key={tech}
-                className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-950 text-slate-300 border border-slate-800 group-hover:border-sky-500/30 transition-colors"
+                className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-slate-950 border border-slate-800 text-slate-300"
               >
                 {tech}
               </span>
             ))}
           </div>
-
-          {/* Action Link Footer */}
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-950 hover:bg-gradient-to-r hover:from-sky-400 hover:to-cyan-300 hover:text-slate-950 text-sky-400 border border-slate-800 hover:border-transparent font-bold text-xs shadow-md transition-all duration-200"
-            >
-              <span>Explore {project.title} Live</span>
-              <ExternalLink className="w-4 h-4 shrink-0" />
-            </a>
-          )}
         </div>
       </div>
     </motion.article>

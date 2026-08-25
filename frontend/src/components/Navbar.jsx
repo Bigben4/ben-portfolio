@@ -60,30 +60,30 @@ export default function Navbar() {
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16 flex items-center justify-between gap-4 md:gap-8 lg:gap-12">
-        {/* Brand Logo & Name (Enlarged & Positioned on Extreme Left) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        {/* Brand Logo & Name */}
         <a
           href="#home"
-          className="group flex items-center gap-3 text-xl sm:text-2xl md:text-3xl font-black font-['Space_Grotesk'] text-white tracking-tight hover:text-sky-300 transition-all shrink-0"
+          className="group flex items-center gap-2.5 sm:gap-3 text-lg sm:text-xl xl:text-2xl font-black font-['Space_Grotesk'] text-white tracking-tight hover:text-sky-300 transition-all shrink-0"
           aria-label="Ndille Enume Portfolio Home"
         >
-          <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-950 group-hover:shadow-[0_0_15px_#38bdf8] transition-all shrink-0">
-            <Code2 className="w-6 h-6 sm:w-7 sm:h-7 shrink-0" />
+          <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-950 group-hover:shadow-[0_0_15px_#38bdf8] transition-all shrink-0">
+            <Code2 className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
           </div>
-          <span className="tracking-tight">
+          <span className="tracking-tight whitespace-nowrap">
             NDILLE <span className="text-sky-400 group-hover:text-cyan-300 transition-colors">ENUME</span>
           </span>
         </a>
 
-        {/* Desktop Navigation with Increased Length & Spacing */}
-        <nav className="hidden md:flex items-center gap-2.5 lg:gap-3.5 xl:gap-4 bg-slate-900/80 p-2 lg:p-2.5 px-3 lg:px-5 rounded-full border border-slate-800/90 backdrop-blur-md shadow-xl shadow-black/50 mx-2 lg:mx-6 shrink-0">
+        {/* Desktop Navigation (Visible on lg: 1024px+) */}
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-900/80 p-1.5 xl:p-2 px-2.5 xl:px-4 rounded-full border border-slate-800/90 backdrop-blur-md shadow-xl shadow-black/50 shrink-0">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-4 sm:px-5 lg:px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-200 ${
+                className={`px-3 xl:px-4 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold rounded-full transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/30 font-bold scale-[1.02]'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
@@ -96,32 +96,33 @@ export default function Navbar() {
         </nav>
 
         {/* Quick Social Proof Icons & WhatsApp CTA */}
-        <div className="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
-          <div className="flex items-center gap-2 border-r border-slate-800 pr-4 lg:pr-6">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0">
+          {/* Social Icons (Hidden on lg, visible on xl) */}
+          <div className="hidden xl:flex items-center gap-1.5 border-r border-slate-800 pr-3">
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="p-2 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="GitHub Profile"
             >
-              <GithubIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
+              <GithubIcon className="w-5 h-5 shrink-0" />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="p-2 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
+              <LinkedinIcon className="w-5 h-5 shrink-0" />
             </a>
             <a
               href={`mailto:${emailAddress}`}
-              className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
+              className="p-2 rounded-xl text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 transition-all duration-200"
               aria-label="Email Contact"
             >
-              <Mail className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
+              <Mail className="w-5 h-5 shrink-0" />
             </a>
           </div>
 
@@ -130,19 +131,19 @@ export default function Navbar() {
             href={whatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="min-h-[48px] inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-bold text-sky-400 bg-sky-500/10 hover:bg-sky-500 hover:text-slate-950 rounded-xl border border-sky-500/30 transition-all duration-200 shadow-sm hover:shadow-sky-500/20"
+            className="inline-flex items-center justify-center gap-1.5 px-4 xl:px-5 py-2 xl:py-2.5 text-xs xl:text-sm font-bold text-sky-400 bg-sky-500/10 hover:bg-sky-500 hover:text-slate-950 rounded-xl border border-sky-500/30 transition-all duration-200 shadow-sm hover:shadow-sky-500/20 whitespace-nowrap"
           >
             <span>Let's Talk</span>
-            <ArrowUpRight className="w-5 h-5 shrink-0" />
+            <ArrowUpRight className="w-4 h-4 shrink-0" />
           </a>
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <div className="flex items-center md:hidden">
+        {/* Mobile / Tablet Hamburger Button (Visible below lg: 1024px) */}
+        <div className="flex items-center lg:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="min-w-[48px] min-h-[48px] p-3 rounded-lg text-slate-300 hover:text-white bg-slate-900/80 border border-slate-800 flex items-center justify-center transition-colors"
+            className="p-2.5 rounded-xl text-slate-300 hover:text-white bg-slate-900/80 border border-slate-800 flex items-center justify-center transition-colors"
             aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
           >
@@ -153,7 +154,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-black/95 backdrop-blur-xl border-b border-neutral-800 shadow-2xl p-6 transition-all animate-fadeIn">
+        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-black/95 backdrop-blur-xl border-b border-neutral-800 shadow-2xl p-6 transition-all animate-fadeIn">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <a
