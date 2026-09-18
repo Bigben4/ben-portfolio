@@ -148,7 +148,7 @@ export default function Hero() {
  <div className="absolute -inset-2 rounded-[36px] blur-2xl pointer-events-none" />
 
  {/* Animated Glowing Laser Border Outer Wrapper */}
- <div className="relative p-[2.5px] rounded-[32px] overflow-hidden shadow-2xl shadow-sky-950/50 group">
+ <div className="relative p-[2.5px] rounded-[32px] overflow-hidden shadow-xl group">
  
  {/* 360-Degree Continuous Rotating Laser Conic Gradient */}
  <motion.div

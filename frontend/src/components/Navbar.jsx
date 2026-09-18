@@ -56,7 +56,7 @@ export default function Navbar() {
  <header
  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
  isScrolled
- ? 'bg-white/90 backdrop-blur-md border-b border-gray-200 py-3 shadow-xl shadow-black/80'
+ ? 'bg-white/90 backdrop-blur-md border-b border-gray-200 py-3 shadow-sm'
  : 'bg-transparent py-5'
  }`}
  >
@@ -76,7 +76,7 @@ export default function Navbar() {
  </a>
 
  {/* Desktop Navigation (Visible on lg: 1024px+) */}
- <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-white p-1.5 xl:p-2 px-2.5 xl:px-4 rounded-full border border-gray-200 backdrop-blur-md shadow-xl shadow-black/50 shrink-0">
+ <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-white p-1.5 xl:p-2 px-2.5 xl:px-4 rounded-full border border-gray-200 backdrop-blur-md shadow-sm shrink-0">
  {navLinks.map((link) => {
  const isActive = activeSection === link.id
  return (

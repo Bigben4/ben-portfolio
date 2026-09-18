@@ -44,7 +44,7 @@ export default function AboutMe() {
  transition={{ duration: 0.8, ease: 'easeOut' }}
  className="lg:col-span-6 relative flex items-center justify-center w-full"
  >
- <div className="relative w-full max-w-md lg:max-w-lg rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-2xl shadow-sky-950/20">
+ <div className="relative w-full max-w-md lg:max-w-lg rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-xl">
  <img
  src={aboutPortrait}
  alt="Ndille Enume"
