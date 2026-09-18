@@ -11,22 +11,22 @@ import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 
 function App() {
-  return (
-    <div className="min-h-screen bg-black text-slate-100 selection:bg-blue-600 selection:text-white font-sans">
-      <Navbar />
-      <main id="main-content" className="relative z-0">
-        <Hero />
-        <AboutMe />
-        <FeaturedProjects />
-        <TechnicalSkills />
-        <ExperienceCommunity />
-        <DeveloperJournal />
-        <ContactSection />
-      </main>
-      <Footer />
-      <Analytics />
-    </div>
-  )
+ return (
+ <div className="min-h-screen bg-white text-black selection:bg-blue-600 selection:text-white font-sans">
+ <Navbar />
+ <main id="main-content" className="relative z-0">
+ <Hero />
+ <AboutMe />
+ <FeaturedProjects />
+ <TechnicalSkills />
+ <ExperienceCommunity />
+ <DeveloperJournal />
+ <ContactSection />
+ </main>
+ <Footer />
+ <Analytics />
+ </div>
+ )
 }
 
 export default App
