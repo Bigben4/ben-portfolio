@@ -1,33 +1,16 @@
-export const skillCategories = [
-  {
-    id: "frontend",
-    title: "Frontend Engineering",
-    description: "Building responsive, modern, and accessible user interfaces with clean component architectures.",
-    icon: "Layout",
-    skills: [
-      { name: "React 19", level: "Expert", icon: "Code" },
-      { name: "Next.js (App Router)", level: "Advanced", icon: "Layers" },
-      { name: "TypeScript", level: "Advanced", icon: "FileCode" },
-      { name: "JavaScript (ES6+)", level: "Expert", icon: "Terminal" },
-      { name: "Tailwind CSS", level: "Expert", icon: "Palette" },
-      { name: "HTML5 / CSS3", level: "Expert", icon: "Globe" },
-      { name: "Redux / Zustand", level: "Advanced", icon: "Cpu" }
-    ]
-  },
-  {
-    id: "backend",
-    title: "Backend & Databases",
-    description: "Architecting high-throughput REST/GraphQL APIs, relational schemas, and real-time backend services.",
-    icon: "Server",
-    skills: [
-      { name: "Node.js", level: "Expert", icon: "Server" },
-      { name: "Express.js", level: "Expert", icon: "Zap" },
-      { name: "Python", level: "Advanced", icon: "Code2" },
-      { name: "Django", level: "Intermediate", icon: "Box" },
-      { name: "Supabase", level: "Advanced", icon: "Database" },
-      { name: "PostgreSQL", level: "Advanced", icon: "Database" },
-      { name: "MongoDB", level: "Advanced", icon: "HardDrive" },
-      { name: "Redis", level: "Intermediate", icon: "Activity" }
-    ]
-  }
-]
+export const skillsCarousel = [
+  { name: "React 19", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+  { name: "Next.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", invertDark: true },
+  { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+  { name: "JavaScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+  { name: "Tailwind CSS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "HTML5", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+  { name: "CSS3", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+  { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+  { name: "Express.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg", invertDark: true },
+  { name: "Python", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+  { name: "Django", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg", invertDark: true },
+  { name: "Supabase", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" },
+  { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+  { name: "MongoDB", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" }
+];
