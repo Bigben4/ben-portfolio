@@ -5,24 +5,12 @@ import {
  Cpu,
  Layers,
  ArrowUpRight,
- Globe,
- RotateCw,
- Loader2
+ Globe
 } from 'lucide-react'
 import { GithubIcon } from './UI/SocialIcons'
 
 export default function ProjectCard({ project, index = 0 }) {
- const [iframeLoading, setIframeLoading] = useState(true)
- const [iframeKey, setIframeKey] = useState(0)
-
  const targetUrl = project.demoUrl || project.githubUrl
-
- const handleReloadIframe = (e) => {
- e.preventDefault()
- e.stopPropagation()
- setIframeLoading(true)
- setIframeKey((prev) => prev + 1)
- }
 
  // Extract domain for browser address bar display
  const getDisplayUrl = () => {
@@ -111,19 +99,8 @@ export default function ProjectCard({ project, index = 0 }) {
  <span className="truncate">{getDisplayUrl()}</span>
  </div>
 
- {/* Browser Actions: Reload & Launch */}
+ {/* Browser Actions: Launch */}
  <div className="flex items-center gap-1.5">
- {project.demoUrl && (
- <button
- type="button"
- onClick={handleReloadIframe}
- className="p-1 rounded hover:bg-white dark:bg-zinc-950 text-black dark:text-white hover:text-black dark:text-white transition-colors"
- title="Reload live preview"
- aria-label="Reload preview"
- >
- <RotateCw className="w-3 h-3" />
- </button>
- )}
  <a
  href={targetUrl}
  target="_blank"
@@ -137,33 +114,8 @@ export default function ProjectCard({ project, index = 0 }) {
  </div>
  </div>
 
- {/* Viewport Live Preview Display Area */}
+ {/* Static Image Preview Display Area */}
  <div className="relative aspect-[16/10] w-full overflow-hidden bg-white dark:bg-zinc-950">
- {project.demoUrl ? (
- <div className="relative w-full h-full overflow-hidden">
- {/* Loading Spinner */}
- {iframeLoading && (
- <div className="absolute inset-0 bg-white dark:bg-zinc-950 flex flex-col items-center justify-center gap-2 z-20 text-black dark:text-white text-xs font-mono">
- <Loader2 className="w-6 h-6 text-blue-600 animate-spin" />
- <span>Loading Live Preview...</span>
- </div>
- )}
-
- {/* Scaled High-Res Desktop Iframe */}
- <iframe
- key={iframeKey}
- src={project.demoUrl}
- title={`${project.title} live preview`}
- loading="lazy"
- onLoad={() => setIframeLoading(false)}
- className={`w-[200%] h-[200%] transform scale-50 origin-top-left border-0 transition-opacity duration-500 ${
- iframeLoading ? 'opacity-0' : 'opacity-100'
- }`}
- sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
- />
- </div>
- ) : (
- /* Fallback Image Preview if no demo URL */
  <a
  href={targetUrl}
  target="_blank"
@@ -178,7 +130,6 @@ export default function ProjectCard({ project, index = 0 }) {
  loading="lazy"
  />
  </a>
- )}
  </div>
  </div>
 
