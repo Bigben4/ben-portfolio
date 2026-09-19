@@ -5,17 +5,17 @@ import Hero from './components/Hero'
 import AboutMe from './components/AboutMe'
 import FeaturedProjects from './components/FeaturedProjects'
 import TechnicalSkills from './components/TechnicalSkills'
-import ExperienceCommunity from './components/ExperienceCommunity'
+import ServicesSection from './components/ServicesSection'
 import DeveloperJournal from './components/DeveloperJournal'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 
 function App() {
  return (
- <div className="min-h-screen bg-white text-black selection:bg-blue-600 selection:text-white font-sans relative">
+ <div className="min-h-screen bg-white dark:bg-zinc-950 text-black dark:text-white selection:bg-blue-600 selection:text-white font-sans relative transition-colors duration-300">
  {/* Fixed Background Name Watermark */}
  <div className="fixed inset-0 pointer-events-none z-40 flex items-center justify-center overflow-hidden">
- <div className="text-[18vw] md:text-[14vw] font-black text-black/[0.03] whitespace-nowrap select-none font-['Space_Grotesk'] tracking-tighter">
+ <div className="text-[18vw] md:text-[14vw] font-black text-black/[0.03] dark:text-white/[0.02] whitespace-nowrap select-none font-['Space_Grotesk'] tracking-tighter">
  NDILLE ENUME
  </div>
  </div>
@@ -25,7 +25,7 @@ function App() {
  <AboutMe />
  <FeaturedProjects />
  <TechnicalSkills />
- <ExperienceCommunity />
+ <ServicesSection />
  <DeveloperJournal />
  <ContactSection />
  </main>

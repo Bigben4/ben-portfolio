@@ -1,25 +1,59 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
  Mail,
  ArrowDown,
- FileText,
  MessageCircle
 } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './UI/SocialIcons'
 import heroPortrait from '../assets/hero-portrait.webp'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Hero() {
- const whatsAppUrl = 'https://wa.me/237671807750'
- const emailAddress = 'Ebrahimndille@gmail.com'
+ const textRef = useRef(null)
+ const whatsAppUrl = import.meta.env.VITE_WHATSAPP_URL || 'https://wa.me/237671807750'
+ const emailAddress = import.meta.env.VITE_EMAIL_ADDRESS || 'Ebrahimndille@gmail.com'
+ const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com'
+ const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com'
+
+ useEffect(() => {
+   const chars = textRef.current.querySelectorAll('.type-char')
+   
+   // 1. Initial typing animation on page load
+   gsap.fromTo(chars,
+     { opacity: 0 },
+     { opacity: 1, duration: 0.05, stagger: 0.03, ease: 'none', delay: 0.5 }
+   )
+
+   // 2. Scroll-triggered untyping as they scroll down
+   gsap.fromTo(chars,
+     { opacity: 1 },
+     {
+       opacity: 0,
+       stagger: { each: 0.1, from: 'end' },
+       ease: 'none',
+       immediateRender: false,
+       overwrite: 'auto',
+       scrollTrigger: {
+         trigger: '#home',
+         start: 'top -15%', // start untyping after scrolling down a bit (buffer)
+         end: 'bottom 50%', // finish untyping when hero is half out
+         scrub: 1, // sync with scroll speed
+       }
+     }
+   )
+ }, [])
 
  return (
  <section
  id="home"
- className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden min-h-[90vh] flex items-center justify-center border-b border-gray-200"
+ className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden min-h-[90vh] flex items-center justify-center border-b border-gray-200 dark:border-zinc-800"
  >
  {/* Background Ambient Glow & Grid Patterns */}
- <div className="absolute inset-0 bg-white pointer-events-none" />
+ <div className="absolute inset-0 bg-white dark:bg-zinc-950 pointer-events-none" />
  <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-600/10 blur-[130px] rounded-full pointer-events-none" />
 
  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full relative z-10">
@@ -35,16 +69,24 @@ export default function Hero() {
  transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
  className="space-y-4"
  >
- <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-['Space_Grotesk'] text-black tracking-tight leading-[1.12]">
+ <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-['Space_Grotesk'] text-black dark:text-white tracking-tight leading-[1.12]">
  NDILLE <span className="text-blue-600">ENUME</span>
  </h1>
  
  {/* Strong Value-Driven Branding Statement */}
  <div className="pt-2">
- <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-['Space_Grotesk'] text-black leading-[1.2] tracking-tight">
- I engineer high-impact solutions that{' '}
+ <h2 ref={textRef} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-['Space_Grotesk'] text-black dark:text-white leading-[1.2] tracking-tight">
+ {"I engineer high-impact solutions that ".split("").map((char, index) => (
+ <span key={`p1-${index}`} className="type-char inline-block whitespace-pre">
+ {char}
+ </span>
+ ))}
  <span className="text-blue-600">
- solve real-world problems.
+ {"solve real-world problems.".split("").map((char, index) => (
+ <span key={`p2-${index}`} className="type-char inline-block whitespace-pre">
+ {char}
+ </span>
+ ))}
  </span>
  </h2>
  </div>
@@ -65,17 +107,6 @@ export default function Hero() {
  >
  <span>View Selected Work</span>
  <ArrowDown className="w-5 h-5 md:w-6 md:h-6 shrink-0 group-hover:translate-y-1 transition-transform" />
- </a>
-
- {/* CTA 2: Secondary - Download CV / Resume */}
- <a
- href="/resume.pdf"
- target="_blank"
- rel="noopener noreferrer"
- className="group min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-black bg-white hover:bg-white border border-gray-200 hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
- >
- <FileText className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-blue-600 group-hover:scale-110 transition-transform" />
- <span>Download CV / Resume</span>
  </a>
 
  {/* Quick WhatsApp Chat Icon Button */}
@@ -100,33 +131,33 @@ export default function Hero() {
  transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
  className="pt-4 flex flex-wrap items-center gap-4"
  >
- <span className="text-xs font-semibold uppercase tracking-wider text-black">
+ <span className="text-xs font-semibold uppercase tracking-wider text-black dark:text-white">
  Connect With Me
  </span>
- <div className="h-4 w-px bg-white hidden sm:block" />
+ <div className="h-4 w-px bg-white dark:bg-zinc-950 hidden sm:block" />
  <div className="flex items-center gap-3">
  <a
- href="https://github.com"
+ href={githubUrl}
  target="_blank"
  rel="noopener noreferrer"
  aria-label="GitHub Profile"
- className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-white border border-gray-200 text-black hover:text-blue-600 hover:border-blue-600 hover:bg-white hover:scale-110 transition-all duration-200 shadow-sm"
+ className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white hover:text-blue-600 hover:border-blue-600 hover:bg-white dark:bg-zinc-950 hover:scale-110 transition-all duration-200 shadow-sm"
  >
  <GithubIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
  </a>
  <a
- href="https://linkedin.com"
+ href={linkedinUrl}
  target="_blank"
  rel="noopener noreferrer"
  aria-label="LinkedIn Profile"
- className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-white border border-gray-200 text-black hover:text-blue-600 hover:border-blue-600 hover:bg-white hover:scale-110 transition-all duration-200 shadow-sm"
+ className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white hover:text-blue-600 hover:border-blue-600 hover:bg-white dark:bg-zinc-950 hover:scale-110 transition-all duration-200 shadow-sm"
  >
  <LinkedinIcon className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
  </a>
  <a
  href={`mailto:${emailAddress}`}
  aria-label="Send Email to Ndille Enume"
- className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-white border border-gray-200 text-black hover:text-blue-600 hover:border-blue-600 hover:bg-white hover:scale-110 transition-all duration-200 shadow-sm"
+ className="min-h-[48px] min-w-[48px] flex items-center justify-center p-2.5 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white hover:text-blue-600 hover:border-blue-600 hover:bg-white dark:bg-zinc-950 hover:scale-110 transition-all duration-200 shadow-sm"
  >
  <Mail className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
  </a>
@@ -154,24 +185,24 @@ export default function Hero() {
  <motion.div
  animate={{ rotate: 360 }}
  transition={{ duration: 4.5, repeat: Infinity, ease: 'linear' }}
- className="absolute -inset-[150%] bg-white pointer-events-none"
+ className="absolute -inset-[150%] bg-white dark:bg-zinc-950 pointer-events-none"
  />
 
  {/* Additional Glow Diffusion Layer */}
  <motion.div
  animate={{ rotate: 360 }}
  transition={{ duration: 4.5, repeat: Infinity, ease: 'linear' }}
- className="absolute -inset-[150%] bg-white blur-md opacity-80 pointer-events-none"
+ className="absolute -inset-[150%] bg-white dark:bg-zinc-950 blur-md opacity-80 pointer-events-none"
  />
 
  {/* Static Inner Dark Border Layer */}
  <div className="relative rounded-[30px] p-4 sm:p-5 backdrop-blur-2xl overflow-hidden">
  
  {/* Subtle Background Grid Pattern inside Card */}
- <div className="absolute inset-0 bg-white [background-size:18px_18px] pointer-events-none" />
+ <div className="absolute inset-0 bg-white dark:bg-zinc-950 [background-size:18px_18px] pointer-events-none" />
  
  {/* Image Presentation Box */}
- <div className="relative rounded-2xl overflow-hidden flex items-center justify-center pt-6 px-4 border border-gray-200">
+ <div className="relative rounded-2xl overflow-hidden flex items-center justify-center pt-6 px-4 border border-gray-200 dark:border-zinc-800">
  <img
  src={heroPortrait}
  alt="Ndille Enume - Full-Stack Software Engineer"

@@ -1,14 +1,12 @@
 @import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: light;
   }
 
   body {
-    background-color: #ffffff;
-    color: #000000;
     font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
   }
@@ -20,12 +18,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #e5e7eb;
   border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f3f46;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -46,3 +47,30 @@
 .animate-fadeIn {
   animation: fadeIn 0.25s ease-out forwards;
 }
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(15px, -25px) rotate(15deg); }
+  50% { transform: translate(-10px, -15px) rotate(-5deg); }
+  75% { transform: translate(-25px, 15px) rotate(10deg); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-25px, 25px) rotate(-15deg); }
+  66% { transform: translate(20px, -20px) rotate(15deg); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(30px, 15px) scale(1.2) rotate(25deg); }
+}
+
+.group:hover .animate-float1 {
+  animation: float1 8s infinite ease-in-out;
+}
+.group:hover .animate-float2 {
+  animation: float2 10s infinite ease-in-out;
+}
+.group:hover .animate-float3 {
+  animation: float3 9s infinite ease-in-out;
+}
+

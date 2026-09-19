@@ -41,7 +41,7 @@ export default function ProjectCard({ project, index = 0 }) {
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
  transition={{ duration: 0.8, delay: index * 0.15, ease: 'easeOut' }}
- className="group relative rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-xl hover:border-blue-600 transition-all duration-300 flex flex-col justify-between"
+ className="group relative rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5 sm:p-6 shadow-xl hover:border-blue-600 transition-all duration-300 flex flex-col justify-between"
  >
  {/* Background Subtle Gradient Overlay */}
  <div
@@ -56,10 +56,10 @@ export default function ProjectCard({ project, index = 0 }) {
  <span className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold text-blue-600 bg-blue-600/10 border border-blue-600 mb-2">
  {project.category}
  </span>
- <h3 className="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-black group-hover:text-blue-600 transition-colors">
+ <h3 className="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-black dark:text-white group-hover:text-blue-600 transition-colors">
  {project.title}
  </h3>
- <p className="text-xs text-black font-medium mt-1">
+ <p className="text-xs text-black dark:text-white font-medium mt-1">
  {project.role}
  </p>
  </div>
@@ -72,7 +72,7 @@ export default function ProjectCard({ project, index = 0 }) {
  target="_blank"
  rel="noopener noreferrer"
  aria-label={`View ${project.title} source code on GitHub`}
- className="min-h-[44px] min-w-[44px] p-2.5 rounded-xl bg-white border border-gray-200 text-black hover:text-black hover:border-blue-600 hover:bg-white transition-all flex items-center justify-center shadow-sm"
+ className="min-h-[44px] min-w-[44px] p-2.5 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white hover:text-black dark:text-white hover:border-blue-600 hover:bg-white dark:bg-zinc-950 transition-all flex items-center justify-center shadow-sm"
  title="View Source Code"
  >
  <GithubIcon className="w-5 h-5 shrink-0" />
@@ -95,9 +95,9 @@ export default function ProjectCard({ project, index = 0 }) {
  </div>
 
  {/* Interactive Browser Frame Live Preview Container */}
- <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-white shadow-xl group/browser transition-all duration-300 hover:border-blue-600">
+ <div className="relative rounded-xl overflow-hidden border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xl group/browser transition-all duration-300 hover:border-blue-600">
  {/* Browser Header Bar */}
- <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 border-b border-gray-200 bg-white text-black text-[11px] font-mono select-none">
+ <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 border-b border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-black dark:text-white text-[11px] font-mono select-none">
  {/* Window Dots */}
  <div className="flex items-center gap-1.5">
  <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
@@ -106,7 +106,7 @@ export default function ProjectCard({ project, index = 0 }) {
  </div>
 
  {/* Browser URL Bar Display */}
- <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-gray-200 text-[10px] text-black max-w-[180px] sm:max-w-[240px] truncate">
+ <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-[10px] text-black dark:text-white max-w-[180px] sm:max-w-[240px] truncate">
  <Globe className="w-3 h-3 text-blue-600 shrink-0" />
  <span className="truncate">{getDisplayUrl()}</span>
  </div>
@@ -117,7 +117,7 @@ export default function ProjectCard({ project, index = 0 }) {
  <button
  type="button"
  onClick={handleReloadIframe}
- className="p-1 rounded hover:bg-white text-black hover:text-black transition-colors"
+ className="p-1 rounded hover:bg-white dark:bg-zinc-950 text-black dark:text-white hover:text-black dark:text-white transition-colors"
  title="Reload live preview"
  aria-label="Reload preview"
  >
@@ -128,7 +128,7 @@ export default function ProjectCard({ project, index = 0 }) {
  href={targetUrl}
  target="_blank"
  rel="noopener noreferrer"
- className="flex items-center gap-1 px-2 py-0.5 rounded bg-white hover:bg-blue-600 hover:text-blue-600 border border-gray-200 hover:border-blue-600 text-[10px] text-blue-600 font-semibold transition-all"
+ className="flex items-center gap-1 px-2 py-0.5 rounded bg-white dark:bg-zinc-950 hover:bg-blue-600 hover:text-blue-600 border border-gray-200 dark:border-zinc-800 hover:border-blue-600 text-[10px] text-blue-600 font-semibold transition-all"
  title="Open live site in new tab"
  >
  <span className="hidden sm:inline">Launch</span>
@@ -138,12 +138,12 @@ export default function ProjectCard({ project, index = 0 }) {
  </div>
 
  {/* Viewport Live Preview Display Area */}
- <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
+ <div className="relative aspect-[16/10] w-full overflow-hidden bg-white dark:bg-zinc-950">
  {project.demoUrl ? (
  <div className="relative w-full h-full overflow-hidden">
  {/* Loading Spinner */}
  {iframeLoading && (
- <div className="absolute inset-0 bg-white flex flex-col items-center justify-center gap-2 z-20 text-black text-xs font-mono">
+ <div className="absolute inset-0 bg-white dark:bg-zinc-950 flex flex-col items-center justify-center gap-2 z-20 text-black dark:text-white text-xs font-mono">
  <Loader2 className="w-6 h-6 text-blue-600 animate-spin" />
  <span>Loading Live Preview...</span>
  </div>
@@ -183,35 +183,35 @@ export default function ProjectCard({ project, index = 0 }) {
  </div>
 
  {/* Structured Case Study Sections */}
- <div className="space-y-3 text-xs text-black leading-relaxed pt-1">
+ <div className="space-y-3 text-xs text-black dark:text-white leading-relaxed pt-1">
  {/* Problem Statement */}
- <div className="bg-white p-3 rounded-lg border border-gray-200">
+ <div className="bg-white dark:bg-zinc-950 p-3 rounded-lg border border-gray-200 dark:border-zinc-800">
  <h4 className="font-semibold text-blue-600 text-xs flex items-center gap-1.5 mb-1 uppercase tracking-wider">
  <Layers className="w-3.5 h-3.5" />
  <span>Problem Statement</span>
  </h4>
- <p className="text-black">{project.problemStatement || project.problem}</p>
+ <p className="text-black dark:text-white">{project.problemStatement || project.problem}</p>
  </div>
 
  {/* Technical Architecture */}
- <div className="bg-white p-3 rounded-lg border border-gray-200">
+ <div className="bg-white dark:bg-zinc-950 p-3 rounded-lg border border-gray-200 dark:border-zinc-800">
  <h4 className="font-semibold text-purple-400 text-xs flex items-center gap-1.5 mb-1 uppercase tracking-wider">
  <Cpu className="w-3.5 h-3.5" />
  <span>Technical Architecture</span>
  </h4>
- <p className="text-black">{project.technicalArchitecture || project.solution}</p>
+ <p className="text-black dark:text-white">{project.technicalArchitecture || project.solution}</p>
  </div>
  </div>
  </div>
 
  {/* Card Footer: Tech Stack Badges */}
- <div className="pt-4 border-t border-gray-200 space-y-3">
+ <div className="pt-4 border-t border-gray-200 dark:border-zinc-800 space-y-3">
  {/* Tech Stack Pills */}
  <div className="flex flex-wrap gap-1.5">
  {(project.technologies || project.techStack || []).map((tech) => (
  <span
  key={tech}
- className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-white border border-gray-200 text-black"
+ className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white"
  >
  {tech}
  </span>

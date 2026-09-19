@@ -50,11 +50,11 @@ const iconMap = {
 
 export default function TechnicalSkills() {
  return (
- <section id="skills" className="py-24 border-b border-gray-200 relative overflow-hidden">
+ <section id="skills" className="py-24 border-b border-gray-200 dark:border-zinc-800 relative overflow-hidden">
  {/* Contrasting Multi-Color Ambient Glows */}
  <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-blue-600/10 blur-[160px] rounded-full pointer-events-none" />
  <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-purple-600/10 blur-[160px] rounded-full pointer-events-none" />
- <div className="absolute inset-0 bg-white [background-size:20px_20px] pointer-events-none" />
+ <div className="absolute inset-0 bg-white dark:bg-zinc-950 [background-size:20px_20px] pointer-events-none" />
 
  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
  {/* Section Header */}
@@ -65,10 +65,10 @@ export default function TechnicalSkills() {
  transition={{ duration: 0.8, ease: 'easeOut' }}
  className="text-center max-w-3xl mx-auto mb-16 space-y-4"
  >
- <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Space_Grotesk'] text-black tracking-tight leading-tight">
+ <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Space_Grotesk'] text-black dark:text-white tracking-tight leading-tight">
  Technical Architecture & Mastery
  </h2>
- <p className="text-black text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+ <p className="text-black dark:text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
  Categorized core competencies across modern full-stack web engineering, cloud backend systems, and developer tooling.
  </p>
  </motion.div>
@@ -84,19 +84,19 @@ export default function TechnicalSkills() {
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
  transition={{ duration: 0.8, delay: idx * 0.15, ease: 'easeOut' }}
- className="rounded-2xl border border-gray-200 bg-white p-6 shadow-xl hover:border-blue-600 transition-all duration-300 flex flex-col justify-between"
+ className="rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 shadow-xl hover:border-blue-600 transition-all duration-300 flex flex-col justify-between"
  >
  <div>
  {/* Category Header */}
- <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-200">
+ <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-200 dark:border-zinc-800">
  <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-600 text-blue-600 flex items-center justify-center shrink-0">
  <CategoryIcon className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
  </div>
  <div>
- <h3 className="text-lg font-bold font-['Space_Grotesk'] text-black">
+ <h3 className="text-lg font-bold font-['Space_Grotesk'] text-black dark:text-white">
  {category.title}
  </h3>
- <p className="text-xs text-black mt-0.5 line-clamp-1">
+ <p className="text-xs text-black dark:text-white mt-0.5 line-clamp-1">
  {category.description}
  </p>
  </div>
@@ -109,13 +109,13 @@ export default function TechnicalSkills() {
  return (
  <div
  key={skill.name}
- className="group relative flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-gray-200 text-black text-xs font-medium hover:border-blue-600 hover:bg-white hover:text-black transition-all duration-200 cursor-default"
+ className="group relative flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white text-xs font-medium hover:border-blue-600 hover:bg-white dark:bg-zinc-950 hover:text-black dark:text-white transition-all duration-200 cursor-default"
  >
  <SkillIcon
  className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-blue-600 group-hover:scale-110 transition-transform"
  />
  <span>{skill.name}</span>
- <span className="text-[9px] text-black font-mono bg-white px-1.5 py-0.5 rounded border border-gray-200">
+ <span className="text-[9px] text-black dark:text-white font-mono bg-white dark:bg-zinc-950 px-1.5 py-0.5 rounded border border-gray-200 dark:border-zinc-800">
  {skill.level}
  </span>
  </div>
@@ -125,7 +125,7 @@ export default function TechnicalSkills() {
  </div>
 
  {/* Footer indicator */}
- <div className="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between text-[11px] text-black font-mono">
+ <div className="mt-6 pt-4 border-t border-gray-200 dark:border-zinc-800 flex items-center justify-between text-[11px] text-black dark:text-white font-mono">
  <span>Category {idx + 1} of 3</span>
  <span className="text-blue-600 font-semibold">{category.skills.length} Mastered</span>
  </div>

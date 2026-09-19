@@ -54,10 +54,10 @@ function MilestoneImageSlider({ images, singleImage, title, isActive, date, cate
  <div
  onMouseEnter={() => setIsHovered(true)}
  onMouseLeave={() => setIsHovered(false)}
- className={`group w-full h-72 sm:h-88 md:h-[400px] lg:h-[450px] xl:h-[480px] rounded-3xl overflow-hidden bg-white shadow-2xl relative transition-all duration-1000 select-none ${
+ className={`group w-full h-72 sm:h-88 md:h-[400px] lg:h-[450px] xl:h-[480px] rounded-3xl overflow-hidden bg-white dark:bg-zinc-950 shadow-2xl relative transition-all duration-1000 select-none ${
  isActive
  ? 'border-2 border-blue-600 shadow-[0_0_35px_rgba(56,189,248,0.25)]'
- : 'border border-gray-200'
+ : 'border border-gray-200 dark:border-zinc-800'
  }`}
  >
  {/* 1s Smooth Crossfade between photos of this milestone */}
@@ -82,13 +82,13 @@ function MilestoneImageSlider({ images, singleImage, title, isActive, date, cate
  {imageList.length > 1 && (
  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-20 pointer-events-auto">
  {/* Photo Counter Pill */}
- <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/80 border border-gray-200 backdrop-blur-md text-xs font-mono text-black shadow-md">
+ <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-zinc-950/80 border border-gray-200 dark:border-zinc-800 backdrop-blur-md text-xs font-mono text-black dark:text-white shadow-md">
  <Layers className="w-3.5 h-3.5 text-blue-600" />
  <span>{currentIndex + 1} / {imageList.length}</span>
  </span>
 
  {/* Interactive Progress Indicators */}
- <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/80 border border-gray-200 backdrop-blur-md">
+ <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-gray-200 dark:border-zinc-800 backdrop-blur-md">
  {imageList.map((_, idx) => (
  <button
  key={idx}
@@ -111,17 +111,17 @@ function MilestoneImageSlider({ images, singleImage, title, isActive, date, cate
  <button
  onClick={goToPrev}
  aria-label="Previous photo"
- className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/75 hover:bg-blue-600 border border-neutral-700/80 hover:border-blue-600 text-black backdrop-blur-md transition-all duration-300 flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 z-20 focus:opacity-100 cursor-pointer"
+ className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white dark:bg-zinc-950/75 hover:bg-blue-600 border border-neutral-700/80 hover:border-blue-600 text-black dark:text-white backdrop-blur-md transition-all duration-300 flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 z-20 focus:opacity-100 cursor-pointer"
  >
- <ChevronLeft className="w-5 h-5 text-black" />
+ <ChevronLeft className="w-5 h-5 text-black dark:text-white" />
  </button>
 
  <button
  onClick={goToNext}
  aria-label="Next photo"
- className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/75 hover:bg-blue-600 border border-neutral-700/80 hover:border-blue-600 text-black backdrop-blur-md transition-all duration-300 flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 z-20 focus:opacity-100 cursor-pointer"
+ className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white dark:bg-zinc-950/75 hover:bg-blue-600 border border-neutral-700/80 hover:border-blue-600 text-black dark:text-white backdrop-blur-md transition-all duration-300 flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 z-20 focus:opacity-100 cursor-pointer"
  >
- <ChevronRight className="w-5 h-5 text-black" />
+ <ChevronRight className="w-5 h-5 text-black dark:text-white" />
  </button>
  </>
  )}
@@ -161,7 +161,7 @@ function MilestoneRow({ item, index, isEven }) {
  {/* Central Junction Node (Desktop: Center Axis) */}
  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20 items-center justify-center pointer-events-none">
  <div
- className={`w-6 h-6 rounded-full border-2 bg-white flex items-center justify-center transition-all duration-500 ${
+ className={`w-6 h-6 rounded-full border-2 bg-white dark:bg-zinc-950 flex items-center justify-center transition-all duration-500 ${
  isActive
  ? 'border-blue-600 shadow-[0_0_18px_#38bdf8] scale-125 ring-4 ring-sky-500/20'
  : 'border-neutral-700 shadow-none opacity-50 scale-90'
@@ -176,7 +176,7 @@ function MilestoneRow({ item, index, isEven }) {
  {/* Mobile Node (Left-aligned stem) */}
  <div className="md:hidden absolute left-4 sm:left-6 -translate-x-1/2 top-8 z-20 items-center justify-center flex pointer-events-none">
  <div
- className={`w-5 h-5 rounded-full border-2 bg-white flex items-center justify-center transition-all duration-500 ${
+ className={`w-5 h-5 rounded-full border-2 bg-white dark:bg-zinc-950 flex items-center justify-center transition-all duration-500 ${
  isActive
  ? 'border-blue-600 shadow-[0_0_14px_#38bdf8] scale-110'
  : 'border-neutral-700 shadow-none opacity-40 scale-90'
@@ -213,10 +213,10 @@ function MilestoneRow({ item, index, isEven }) {
  className={`font-mono text-xs sm:text-sm px-3.5 py-1 rounded-full border font-semibold inline-flex items-center gap-1.5 transition-all duration-500 ${
  isActive
  ? 'border-blue-600 bg-blue-950/30 text-blue-600 shadow-[0_0_12px_rgba(59,130,246,0.3)]'
- : 'border-gray-200 bg-white text-black'
+ : 'border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-black dark:text-white'
  }`}
  >
- <Calendar className={`w-3.5 h-3.5 ${isActive ? 'text-blue-600' : 'text-black'}`} />
+ <Calendar className={`w-3.5 h-3.5 ${isActive ? 'text-blue-600' : 'text-black dark:text-white'}`} />
  {item.date}
  </span>
 
@@ -225,7 +225,7 @@ function MilestoneRow({ item, index, isEven }) {
  className={`text-xs sm:text-sm px-3 py-1 rounded-full font-semibold border inline-flex items-center gap-1.5 transition-all duration-500 ${
  isActive
  ? `${item.badgeColor} shadow-[0_0_10px_rgba(59,130,246,0.25)]`
- : 'border-gray-200 bg-white text-black'
+ : 'border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-black dark:text-white'
  }`}
  >
  <IconComponent className="w-3.5 h-3.5" />
@@ -237,8 +237,8 @@ function MilestoneRow({ item, index, isEven }) {
  <h3
  className={`text-2xl sm:text-3xl md:text-4xl font-black tracking-tight font-['Space_Grotesk'] leading-[1.15] mb-3 transition-all duration-500 ${
  isActive
- ? 'text-black drop-shadow-[0_0_12px_rgba(59,130,246,0.25)]'
- : 'text-black'
+ ? 'text-black dark:text-white drop-shadow-[0_0_12px_rgba(59,130,246,0.25)]'
+ : 'text-black dark:text-white'
  }`}
  style={
  isActive
@@ -252,7 +252,7 @@ function MilestoneRow({ item, index, isEven }) {
  {/* Description */}
  <p
  className={`text-sm sm:text-base leading-relaxed max-w-xl transition-colors duration-500 ${
- isActive ? 'text-black' : 'text-black'
+ isActive ? 'text-black dark:text-white' : 'text-black dark:text-white'
  }`}
  >
  {item.description}
@@ -302,10 +302,10 @@ export default function DeveloperJournal() {
  return (
  <section
  id="journal"
- className="relative w-full py-16 sm:py-24 border-b border-gray-200 text-black overflow-hidden"
+ className="relative w-full py-16 sm:py-24 border-b border-gray-200 dark:border-zinc-800 text-black dark:text-white overflow-hidden"
  >
  {/* Background Dot Grid */}
- <div className="absolute inset-0 bg-white [background-size:24px_24px] pointer-events-none opacity-40" />
+ <div className="absolute inset-0 bg-white dark:bg-zinc-950 [background-size:24px_24px] pointer-events-none opacity-40" />
 
  {/* Atmospheric Royal Blue Ambient Glows */}
  <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-blue-600/10 blur-[160px] rounded-full pointer-events-none" />
@@ -320,7 +320,7 @@ export default function DeveloperJournal() {
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true, amount: 0.3 }}
  transition={{ duration: 0.6, delay: 0.1 }}
- className="text-4xl sm:text-5xl lg:text-6xl font-black font-['Space_Grotesk'] text-black tracking-tight leading-tight"
+ className="text-4xl sm:text-5xl lg:text-6xl font-black font-['Space_Grotesk'] text-black dark:text-white tracking-tight leading-tight"
  >
  Developer Journal & Milestones
  </motion.h2>
@@ -330,7 +330,7 @@ export default function DeveloperJournal() {
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true, amount: 0.3 }}
  transition={{ duration: 0.6, delay: 0.2 }}
- className="text-black text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
+ className="text-black dark:text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
  >
  Timeline of hackathon victories, developer summit presentations, and major engineering releases.
  </motion.p>
@@ -342,7 +342,7 @@ export default function DeveloperJournal() {
  {/* Central Stem (Desktop) */}
  <div
  aria-hidden="true"
- className="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[3px] bg-white pointer-events-none hidden md:block"
+ className="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[3px] bg-white dark:bg-zinc-950 pointer-events-none hidden md:block"
  />
 
  {/* Animated Glowing Progress Line (Desktop) */}
@@ -355,7 +355,7 @@ export default function DeveloperJournal() {
  {/* Left Stem (Mobile) */}
  <div
  aria-hidden="true"
- className="absolute left-4 sm:left-6 top-4 bottom-4 w-[3px] bg-white pointer-events-none md:hidden"
+ className="absolute left-4 sm:left-6 top-4 bottom-4 w-[3px] bg-white dark:bg-zinc-950 pointer-events-none md:hidden"
  />
 
  {/* Animated Glowing Progress Line (Mobile) */}

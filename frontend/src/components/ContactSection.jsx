@@ -13,9 +13,9 @@ import {
 } from 'lucide-react'
 
 export default function ContactSection() {
- const emailAddress = 'Ebrahimndille@gmail.com'
- const whatsAppUrl = 'https://wa.me/237671807750'
- const formspreeEndpoint = 'https://formspree.io/f/Ebrahimndille@gmail.com'
+ const emailAddress = import.meta.env.VITE_EMAIL_ADDRESS || 'Ebrahimndille@gmail.com'
+ const whatsAppUrl = import.meta.env.VITE_WHATSAPP_URL || 'https://wa.me/237671807750'
+ const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/Ebrahimndille@gmail.com'
 
  const [copiedEmail, setCopiedEmail] = useState(false)
  const [formData, setFormData] = useState({
@@ -99,11 +99,11 @@ export default function ContactSection() {
  }
 
  return (
- <section id="contact" className="py-24 border-b border-gray-200 relative overflow-hidden">
+ <section id="contact" className="py-24 border-b border-gray-200 dark:border-zinc-800 relative overflow-hidden">
  {/* Background Radial Ambient Glows */}
  <div className="absolute top-1/3 -right-20 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none" />
  <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-emerald-500/10 blur-[150px] rounded-full pointer-events-none" />
- <div className="absolute inset-0 bg-white [background-size:20px_20px] pointer-events-none" />
+ <div className="absolute inset-0 bg-white dark:bg-zinc-950 [background-size:20px_20px] pointer-events-none" />
 
  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
  {/* Section Header */}
@@ -114,10 +114,10 @@ export default function ContactSection() {
  transition={{ duration: 0.8, ease: 'easeOut' }}
  className="text-center max-w-3xl mx-auto mb-16 space-y-4"
  >
- <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Space_Grotesk'] text-black tracking-tight leading-tight">
+ <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Space_Grotesk'] text-black dark:text-white tracking-tight leading-tight">
  Start a Conversation
  </h2>
- <p className="text-black text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+ <p className="text-black dark:text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
  Have a project in mind, an engineering role, or a technical inquiry? Send a direct message below.
  </p>
  </motion.div>
@@ -130,7 +130,7 @@ export default function ContactSection() {
  transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
  className="max-w-3xl mx-auto mb-10"
  >
- <div className="rounded-2xl border border-blue-600 bg-white p-5 sm:p-6 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+ <div className="rounded-2xl border border-blue-600 bg-white dark:bg-zinc-950 p-5 sm:p-6 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
  <div className="flex items-center gap-3.5 text-left w-full sm:w-auto">
  <div className="w-11 h-11 rounded-xl bg-blue-600/10 border border-blue-600 text-blue-600 flex items-center justify-center shrink-0">
  <Mail className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
@@ -139,7 +139,7 @@ export default function ContactSection() {
  <span className="text-[11px] font-semibold uppercase tracking-wider text-blue-600 block">
  Direct Email Contact
  </span>
- <span className="text-base sm:text-lg font-bold font-mono text-black tracking-tight">
+ <span className="text-base sm:text-lg font-bold font-mono text-black dark:text-white tracking-tight">
  {emailAddress}
  </span>
  </div>
@@ -149,7 +149,7 @@ export default function ContactSection() {
  <button
  type="button"
  onClick={handleCopyEmail}
- className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600/10 hover:bg-blue-600 hover:text-black text-blue-600 font-sans text-xs font-bold transition-all border border-blue-600"
+ className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600/10 hover:bg-blue-600 hover:text-black dark:text-white text-blue-600 font-sans text-xs font-bold transition-all border border-blue-600"
  aria-label="Copy email address to clipboard"
  >
  {copiedEmail ? (
@@ -167,7 +167,7 @@ export default function ContactSection() {
 
  <a
  href={`mailto:${emailAddress}`}
- className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-white border border-gray-200 text-xs font-semibold text-black transition-colors"
+ className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white dark:bg-zinc-950 hover:bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-xs font-semibold text-black dark:text-white transition-colors"
  title="Send via mail app"
  >
  <span>Mail App</span>
@@ -185,17 +185,17 @@ export default function ContactSection() {
  transition={{ duration: 0.8, delay: 0.25, ease: 'easeOut' }}
  className="max-w-3xl mx-auto"
  >
- <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-xl space-y-6">
- <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-200">
+ <div className="rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 sm:p-8 shadow-xl space-y-6">
+ <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-200 dark:border-zinc-800">
  <div className="flex items-center gap-3">
  <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center shrink-0">
  <MessageSquare className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
  </div>
  <div>
- <h3 className="text-lg font-bold font-['Space_Grotesk'] text-black">
+ <h3 className="text-lg font-bold font-['Space_Grotesk'] text-black dark:text-white">
  Send Direct Message
  </h3>
- <p className="text-xs text-black">
+ <p className="text-xs text-black dark:text-white">
  Delivered directly to {emailAddress}
  </p>
  </div>
@@ -237,7 +237,7 @@ export default function ContactSection() {
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
  {/* Name Field */}
  <div className="space-y-1.5">
- <label htmlFor="name" className="text-xs font-semibold text-black">
+ <label htmlFor="name" className="text-xs font-semibold text-black dark:text-white">
  Your Name <span className="text-rose-400">*</span>
  </label>
  <input
@@ -248,13 +248,13 @@ export default function ContactSection() {
  onChange={handleChange}
  placeholder="e.g. Alex Morgan"
  required
- className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-white border border-gray-200 text-black text-xs focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
+ className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white text-xs focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
  />
  </div>
 
  {/* Email Field */}
  <div className="space-y-1.5">
- <label htmlFor="email" className="text-xs font-semibold text-black">
+ <label htmlFor="email" className="text-xs font-semibold text-black dark:text-white">
  Your Email Address <span className="text-rose-400">*</span>
  </label>
  <input
@@ -265,14 +265,14 @@ export default function ContactSection() {
  onChange={handleChange}
  placeholder="alex@company.com"
  required
- className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-white border border-gray-200 text-black text-xs focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
+ className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white text-xs focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
  />
  </div>
  </div>
 
  {/* Subject Field */}
  <div className="space-y-1.5">
- <label htmlFor="subject" className="text-xs font-semibold text-black">
+ <label htmlFor="subject" className="text-xs font-semibold text-black dark:text-white">
  Subject / Topic
  </label>
  <input
@@ -282,13 +282,13 @@ export default function ContactSection() {
  value={formData.subject}
  onChange={handleChange}
  placeholder="Software Engineering Opportunity / Contract"
- className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-white border border-gray-200 text-black text-xs focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
+ className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white text-xs focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600"
  />
  </div>
 
  {/* Message Field */}
  <div className="space-y-1.5">
- <label htmlFor="message" className="text-xs font-semibold text-black">
+ <label htmlFor="message" className="text-xs font-semibold text-black dark:text-white">
  Your Message <span className="text-rose-400">*</span>
  </label>
  <textarea
@@ -299,7 +299,7 @@ export default function ContactSection() {
  onChange={handleChange}
  placeholder="Provide brief details about your project or technical inquiry..."
  required
- className="w-full min-h-[120px] px-4 py-3 rounded-xl bg-white border border-gray-200 text-black text-xs focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600 resize-none"
+ className="w-full min-h-[120px] px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 text-black dark:text-white text-xs focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-600 resize-none"
  />
  </div>
 
