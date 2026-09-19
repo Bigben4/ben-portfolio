@@ -1,6 +1,6 @@
 import questopsImg from '../assets/2026-reepls-taskflow.webp'
-import heritageVaultImg from '../assets/Screenshot From 2026-08-19 15-59-12.webp'
-import shopcraftImg from '../assets/Screenshot From 2026-08-19 15-59-18.webp'
+import heritageVaultImg from '../assets/Screenshot-From-2026-08-19-15-59-12.webp'
+import shopcraftImg from '../assets/Screenshot-From-2026-08-19-15-59-18.webp'
 import omnipulseImg from '../assets/2026-prometheus-hackathon.webp'
 
 export const projectsData = [
