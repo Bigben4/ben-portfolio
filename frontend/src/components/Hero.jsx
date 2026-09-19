@@ -20,31 +20,35 @@ export default function Hero() {
  const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com'
 
  useEffect(() => {
-   const chars = textRef.current.querySelectorAll('.type-char')
-   
-   // 1. Initial typing animation on page load
-   gsap.fromTo(chars,
-     { opacity: 0 },
-     { opacity: 1, duration: 0.05, stagger: 0.03, ease: 'none', delay: 0.5 }
-   )
+   let ctx = gsap.context(() => {
+     const chars = textRef.current.querySelectorAll('.type-char')
+     
+     // 1. Initial typing animation on page load
+     gsap.fromTo(chars,
+       { opacity: 0 },
+       { opacity: 1, duration: 0.05, stagger: 0.03, ease: 'none', delay: 0.5 }
+     )
 
-   // 2. Scroll-triggered untyping as they scroll down
-   gsap.fromTo(chars,
-     { opacity: 1 },
-     {
-       opacity: 0,
-       stagger: { each: 0.1, from: 'end' },
-       ease: 'none',
-       immediateRender: false,
-       overwrite: 'auto',
-       scrollTrigger: {
-         trigger: '#home',
-         start: 'top -15%', // start untyping after scrolling down a bit (buffer)
-         end: 'bottom 50%', // finish untyping when hero is half out
-         scrub: 1, // sync with scroll speed
+     // 2. Scroll-triggered untyping as they scroll down
+     gsap.fromTo(chars,
+       { opacity: 1 },
+       {
+         opacity: 0,
+         stagger: { each: 0.1, from: 'end' },
+         ease: 'none',
+         immediateRender: false,
+         overwrite: 'auto',
+         scrollTrigger: {
+           trigger: '#home',
+           start: 'top -15%',
+           end: 'bottom 50%',
+           scrub: true,
+         }
        }
-     }
-   )
+     )
+   });
+
+   return () => ctx.revert();
  }, [])
 
  return (
