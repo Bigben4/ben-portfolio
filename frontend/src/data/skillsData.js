@@ -29,20 +29,5 @@ export const skillCategories = [
       { name: "MongoDB", level: "Advanced", icon: "HardDrive" },
       { name: "Redis", level: "Intermediate", icon: "Activity" }
     ]
-  },
-  {
-    id: "tools",
-    title: "AI & Developer Tools",
-    description: "Deploying modern DevOps pipelines, local LLM integrations, and Linux container environments.",
-    icon: "Wrench",
-    skills: [
-      { name: "Git & GitHub", level: "Expert", icon: "GitBranch" },
-      { name: "Docker", level: "Advanced", icon: "Box" },
-      { name: "Linux / Ubuntu CLI", level: "Advanced", icon: "Terminal" },
-      { name: "Ollama / Open-Source AI", level: "Advanced", icon: "Sparkles" },
-      { name: "REST & GraphQL APIs", level: "Expert", icon: "Share2" },
-      { name: "Vite / Webpack", level: "Advanced", icon: "Cpu" },
-      { name: "Vercel / CI/CD", level: "Advanced", icon: "Cloud" }
-    ]
   }
 ]
