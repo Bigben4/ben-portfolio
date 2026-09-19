@@ -41,14 +41,23 @@ export default function ProjectCard({ project, index = 0 }) {
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
  transition={{ duration: 0.8, delay: index * 0.15, ease: 'easeOut' }}
- className="group relative rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5 sm:p-6 shadow-xl hover:border-blue-600 transition-all duration-300 flex flex-col justify-between"
+ className="group relative rounded-2xl bg-gray-200 dark:bg-zinc-800 shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
  >
- {/* Background Subtle Gradient Overlay */}
- <div
- className={`absolute inset-0 rounded-2xl ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`}
+ {/* Animated Spinning Border Layer (Visible on Hover) */}
+ <div 
+   className="absolute inset-[-100%] opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-[spin_3s_linear_infinite]"
+   style={{ background: 'conic-gradient(from 90deg, transparent 0%, transparent 40%, rgba(37, 99, 235, 0.4) 50%, #2563eb 60%, transparent 100%)' }}
  />
 
- <div className="relative z-10 space-y-5 flex-1 flex flex-col justify-between">
+ {/* Solid Inner Background (Masks the center, leaves 1px border) */}
+ <div className="absolute inset-[1px] rounded-2xl bg-white dark:bg-zinc-950 z-0 transition-colors" />
+
+ {/* Background Subtle Gradient Overlay */}
+ <div
+ className={`absolute inset-[1px] rounded-2xl ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-0`}
+ />
+
+ <div className="relative z-10 p-5 sm:p-6 space-y-5 flex-1 flex flex-col justify-between h-full w-full">
  <div className="space-y-4">
  {/* Card Header: Category & Action Links */}
  <div className="flex items-start justify-between gap-4">
